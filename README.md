@@ -1,8 +1,9 @@
-# SUCRE-HOTELES
+# SUCRE-HOTELES 
 
-## Pasos de Funcionamiento
+## Pasos de Funcionamiento:
 
 <ol>
+  <li>abrir la rama master primero</li>
   <li><b>Frontend:</b> Ubicado en el directorio <code>helia-hotel</code>.</li>
   <li><b>Backend:</b> Se encuentra en el directorio <code>backend</code>.</li>
   <li><b>Importar la Base de Datos:</b> Primero, importa la base de datos SQL con las tablas proporcionadas.</li>

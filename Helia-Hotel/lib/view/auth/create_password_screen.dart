@@ -33,13 +33,13 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
         title: Text(
           "Crear nueva contraseña",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 24,
               ),
         ),
@@ -74,7 +74,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
                       const SizedBox(height: 30),
                       Text(
                         "Crear tu nueva contraseña",
-                        style: Theme.of(context).textTheme.caption!.copyWith(
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
                               color: const Color(0xff212121),
@@ -89,14 +89,14 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
                             DefaultImages.lock,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
                             DefaultImages.eye,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                         onChanged: (value) {},
@@ -111,14 +111,14 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
                             DefaultImages.lock,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
                             DefaultImages.eye,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                         onChanged: (value) {},
@@ -160,7 +160,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
                           Text(
                             "Recordarme",
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -173,12 +173,12 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
                 ],
               ),
             ),
-            CustomButton(
+            CustomlabelLarge(
               text: "Continuar",
               onTap: () {
                 Get.dialog(
                   AlertDialog(
-                    buttonPadding: EdgeInsets.zero,
+                    contentPadding: EdgeInsets.zero,
                     titlePadding: EdgeInsets.zero,
                     actionsPadding: EdgeInsets.zero,
                     insetPadding: const EdgeInsets.only(left: 30, right: 30),
@@ -212,7 +212,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
                             "Felicidades!",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w700,
@@ -224,14 +224,14 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
                             "Tu cuenta está lista para usar",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(
                                   fontSize: 18,
                                   color: HexColor(AppTheme.primaryColorString!),
                                 ),
                           ),
                           const SizedBox(height: 30),
-                          CustomButton(
+                          CustomlabelLarge(
                             text: "Ir a la página de inicio",
                             onTap: () {
                               Get.offAll(

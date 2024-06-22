@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hotel/config/text_style.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomlabelLarge extends StatelessWidget {
   final String text;
   final Color? bgColor;
   final Color? textColor;
   final VoidCallback onTap;
-  const CustomButton(
+  const CustomlabelLarge(
       {Key? key,
       required this.text,
       this.bgColor,
@@ -33,7 +33,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   color: textColor ?? Colors.white,

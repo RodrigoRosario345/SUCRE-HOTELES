@@ -24,19 +24,19 @@ class _GalleryScreenState extends State<GalleryScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         title: Text(
           "Galería de fotos del hotel",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SvgPicture.asset(
               DefaultImages.more,
-              color: Theme.of(context).textTheme.bodyText1!.color,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ),
         ],

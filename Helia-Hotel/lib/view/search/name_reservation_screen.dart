@@ -31,12 +31,12 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         title: Text(
           "Nombre de la Reserva",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
         ),
       ),
       body: Padding(
@@ -135,7 +135,7 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
                 ],
               ),
             ),
-            CustomButton(
+            CustomlabelLarge(
               text: "Continuar",
               onTap: () {
                 Get.to(

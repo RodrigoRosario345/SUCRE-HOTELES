@@ -61,7 +61,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               children: [
                 Text(
                   "Bienvenido a Sucre",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 38,
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
@@ -70,7 +70,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 const SizedBox(height: 10),
                 Text(
                   "Capital de Bolivia",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 56,
                         color: HexColor(AppTheme.primaryColorString!),
                         fontWeight: FontWeight.w900,
@@ -78,8 +78,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  "Encuentra los mejores lugares turísticos de la ciudad de Sucre, Bolivia.",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  "Encuentra los mejores hoteles de la ciudad de Sucre, Bolivia.",
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 16,
                         color: Colors.white,
                         fontWeight: FontWeight.w600,

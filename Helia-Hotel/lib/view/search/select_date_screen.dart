@@ -30,12 +30,12 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         title: Text(
           "Seleccione fecha",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
         ),
       ),
       body: Padding(
@@ -63,16 +63,16 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                           onSelectionChanged: (v) {},
                           monthCellStyle: DateRangePickerMonthCellStyle(
                             textStyle:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 14,
                                     ),
                           ),
                           rangeTextStyle:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 14,
                                   ),
                           selectionTextStyle:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     color: Theme.of(context)
                                         .appBarTheme
                                         .backgroundColor,
@@ -80,7 +80,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                   ),
                           headerStyle: DateRangePickerHeaderStyle(
                             textStyle:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 18,
                                     ),
                           ),
@@ -98,7 +98,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                   "fecha de entrada",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .copyWith(fontSize: 18),
                                 ),
                                 const SizedBox(height: 15),
@@ -119,7 +119,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                           "Jun 29",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(fontSize: 14),
                                         ),
                                         const Expanded(child: SizedBox()),
@@ -130,7 +130,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                             DefaultImages.calendar,
                                             color: Theme.of(context)
                                                 .textTheme
-                                                .bodyText1!
+                                                .bodyLarge!
                                                 .color,
                                           ),
                                         ),
@@ -151,7 +151,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                 DefaultImages.arrowImage,
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                               ),
                             ),
@@ -165,7 +165,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                   "Fecha de salida",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .copyWith(fontSize: 18),
                                 ),
                                 const SizedBox(height: 15),
@@ -186,7 +186,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                           "Jun 30",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(fontSize: 14),
                                         ),
                                         const Expanded(child: SizedBox()),
@@ -197,7 +197,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                             DefaultImages.calendar,
                                             color: Theme.of(context)
                                                 .textTheme
-                                                .bodyText1!
+                                                .bodyLarge!
                                                 .color,
                                           ),
                                         ),
@@ -236,7 +236,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                     ? const Color(0xffE8F8EF)
                                     : Theme.of(context)
                                         .textTheme
-                                        .bodyText1!
+                                        .bodyLarge!
                                         .color!
                                         .withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(16),
@@ -252,7 +252,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                               "3",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(fontSize: 24),
                             ),
                             const SizedBox(width: 30),
@@ -264,7 +264,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                     ? const Color(0xffE8F8EF)
                                     : Theme.of(context)
                                         .textTheme
-                                        .bodyText1!
+                                        .bodyLarge!
                                         .color!
                                         .withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(16),
@@ -286,15 +286,15 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
             ),
             Center(
               child: Text(
-                "Total: \$435",
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                "Total: BOL 360",
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: const Color(0xff424242),
                       fontSize: 20,
                     ),
               ),
             ),
             const SizedBox(height: 20),
-            CustomButton(
+            CustomlabelLarge(
               text: "Continuar",
               onTap: () {
                 Get.to(

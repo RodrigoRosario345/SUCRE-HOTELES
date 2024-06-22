@@ -71,7 +71,7 @@ class _CompletedViewState extends State<CompletedView> {
                                       : "Ajayu Sucre",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700,
@@ -86,7 +86,7 @@ class _CompletedViewState extends State<CompletedView> {
                                       : "Sucre, Bolivia",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 14,
                                     color: const Color(0xff616161),
@@ -107,7 +107,7 @@ class _CompletedViewState extends State<CompletedView> {
                                   "Completado",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .copyWith(
                                         fontSize: 13,
                                         color: HexColor(
@@ -156,7 +156,7 @@ class _CompletedViewState extends State<CompletedView> {
                               "Genial, lo has completado!",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 15,
                                     color: HexColor(

@@ -67,7 +67,7 @@ class _ProfileViewState extends State<ProfileView> {
               const SizedBox(width: 16),
               Text(
                 "Perfil",
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
                     ),
@@ -79,7 +79,7 @@ class _ProfileViewState extends State<ProfileView> {
                 child: SvgPicture.asset(
                   DefaultImages.more,
                   fit: BoxFit.fill,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               )
             ],
@@ -106,7 +106,7 @@ class _ProfileViewState extends State<ProfileView> {
                     const SizedBox(height: 20),
                     Text(
                       "Rodrigo Rosario",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
                           ),
@@ -114,7 +114,7 @@ class _ProfileViewState extends State<ProfileView> {
                     const SizedBox(height: 10),
                     Text(
                       "rodrigorosario@gmail.com",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                           ),
                     ),
@@ -200,7 +200,7 @@ class _ProfileViewState extends State<ProfileView> {
                                     "cerrar sesión",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyText1!
+                                        .bodyLarge!
                                         .copyWith(
                                           fontSize: 24,
                                           color: const Color(0xffF75555),
@@ -215,13 +215,13 @@ class _ProfileViewState extends State<ProfileView> {
                                     "Estás seguro/a de que deseas cerrar sesión",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyText1!
+                                        .bodyLarge!
                                         .copyWith(
                                           fontSize: 20,
                                         ),
                                   ),
                                   const SizedBox(height: 30),
-                                  CustomButton(
+                                  CustomlabelLarge(
                                     text: "Sí, cerrar sesión",
                                     onTap: () {
                                       Get.offAll(
@@ -235,14 +235,14 @@ class _ProfileViewState extends State<ProfileView> {
                                     },
                                   ),
                                   const SizedBox(height: 15),
-                                  CustomButton(
+                                  CustomlabelLarge(
                                     text: "Cancelar",
                                     bgColor: AppTheme.isLightTheme == true
                                         ? HexColor(AppTheme.primaryColorString!)
                                             .withOpacity(0.1)
                                         : Theme.of(context)
                                             .textTheme
-                                            .bodyText1!
+                                            .bodyLarge!
                                             .color!
                                             .withOpacity(0.1),
                                     textColor: AppTheme.isLightTheme == true
@@ -284,18 +284,18 @@ class _ProfileViewState extends State<ProfileView> {
               image,
               color: text == "cerrar sesión"
                   ? const Color(0xffF75555)
-                  : Theme.of(context).textTheme.bodyText1!.color,
+                  : Theme.of(context).textTheme.bodyLarge!.color,
               fit: BoxFit.fill,
             ),
           ),
           const SizedBox(width: 16),
           Text(
             text,
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontSize: 18,
                   color: text == "cerrar sesión"
                       ? const Color(0xffF75555)
-                      : Theme.of(context).textTheme.bodyText1!.color,
+                      : Theme.of(context).textTheme.bodyLarge!.color,
                 ),
           ),
           const Expanded(child: SizedBox()),

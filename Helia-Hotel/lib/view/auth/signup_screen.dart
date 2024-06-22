@@ -40,7 +40,7 @@ class _SignupScreenState extends State<SignupScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
@@ -55,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
               children: [
                 Text(
                   "Crear una cuenta nueva",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 32,
                         fontWeight: FontWeight.w700,
                       ),
@@ -162,7 +162,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(width: 14),
                     Text(
                       "Recuérdame",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
                           ),
@@ -170,7 +170,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                CustomButton(
+                CustomlabelLarge(
                   text: "Crear cuenta",
                   onTap: () async {
                     String username = usernameController.text;
@@ -186,12 +186,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text("Error"),
-                            content: Text("Las contraseñas no coinciden."),
+                            title: const Text("Error"),
+                            content:
+                                const Text("Las contraseñas no coinciden."),
                             actions: [
                               TextButton(
                                 onPressed: () => Navigator.pop(context),
-                                child: Text("Aceptar"),
+                                child: const Text("Aceptar"),
                               ),
                             ],
                           );
@@ -212,7 +213,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(width: 14),
                     Text(
                       "o continua con",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 18,
                             color: const Color(0xff616161),
                           ),
@@ -230,11 +231,11 @@ class _SignupScreenState extends State<SignupScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    socialButton(DefaultImages.s1),
+                    sociallabelLarge(DefaultImages.s1),
                     const SizedBox(width: 20),
-                    socialButton(DefaultImages.s2),
+                    sociallabelLarge(DefaultImages.s2),
                     const SizedBox(width: 20),
-                    socialButton(DefaultImages.s3),
+                    sociallabelLarge(DefaultImages.s3),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -250,14 +251,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     children: [
                       Text(
                         "Ya tienes una cuenta?  ",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 14,
                               color: const Color(0xff9E9E9E),
                             ),
                       ),
                       Text(
                         "Iniciar sesión",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 14,
                               color: HexColor(AppTheme.primaryColorString!),
                             ),
@@ -275,7 +276,7 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 }
 
-Widget socialButton(String image) {
+Widget sociallabelLarge(String image) {
   return Container(
     height: 60,
     width: 88,

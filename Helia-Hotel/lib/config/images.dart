@@ -16,7 +16,7 @@ class DefaultImages {
   static const String passwordEmail = 'assets/images/passwordEmail.svg';
   static const String user = 'assets/images/user.png';
   static const String p1 = 'assets/images/p1.png';
-  static const String p2 = 'assets/images/p2.svg';
+  static const String p2 = 'assets/images/p5.svg';
   static const String p3 = 'assets/images/p3.png';
   static const String p4 = 'assets/images/p4.svg';
   static const String calendar = 'assets/images/Calendar.svg';

@@ -127,7 +127,7 @@ class _TabScreenState extends State<TabScreen> {
           const SizedBox(height: 3),
           Text(
             text,
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontSize: 10,
                   color: color,
                 ),

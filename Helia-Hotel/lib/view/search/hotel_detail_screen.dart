@@ -117,7 +117,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         child: Text(
                           "On Hotel Boutique",
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 30,
                                   ),
                         ),
@@ -139,7 +139,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                               "Calle Potosi 300 esquina grau, 2000 Sucre, Bolivia",
                               style: Theme.of(context)
                                   .textTheme
-                                  .caption!
+                                  .bodySmall!
                                   .copyWith(fontSize: 14),
                             ),
                           ],
@@ -151,7 +151,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         child: Divider(
                             color: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .color!
                                 .withOpacity(0.1)),
                       ),
@@ -171,14 +171,14 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 "Galeria de Fotos",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(fontSize: 20),
                               ),
                               Text(
                                 "Ver todo",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       fontSize: 16,
                                       color: HexColor(
@@ -232,7 +232,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                           "Detalles",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyLarge!
                               .copyWith(fontSize: 20),
                         ),
                       ),
@@ -253,7 +253,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                           "Descripción",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyLarge!
                               .copyWith(fontSize: 20),
                         ),
                       ),
@@ -261,16 +261,17 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: ReadMoreText(
-                          style: Theme.of(context).textTheme.caption!.copyWith(
-                                fontSize: 14,
-                                height: 1.4,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall!.copyWith(
+                                    fontSize: 14,
+                                    height: 1.4,
+                                  ),
                           'El On Hotel Boutique se encuentra en Sucre y ofrece jardín. Cuenta con restaurante, recepción 24 horas, salón compartido y WiFi gratuita. El establecimiento cuenta con centro de negocios, salas de reuniones, mostrador de información turística y servicio de planchado.',
                           trimLines: 4,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: '...Ver más',
                           moreStyle:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 18,
                                   ),
                         ),
@@ -282,7 +283,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                           "Servicios",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyLarge!
                               .copyWith(fontSize: 20),
                         ),
                       ),
@@ -313,7 +314,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                           "Ubicación",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyLarge!
                               .copyWith(fontSize: 20),
                         ),
                       ),
@@ -355,7 +356,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 "Valoraciones",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(fontSize: 20),
                               ),
                               const SizedBox(width: 14),
@@ -368,7 +369,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 "  4.8  ",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       fontSize: 14,
                                       color: HexColor(
@@ -379,7 +380,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 "(3 valoraciones)",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .caption!
+                                    .bodySmall!
                                     .copyWith(
                                       fontSize: 14,
                                     ),
@@ -389,7 +390,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 "Ver todo",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       fontSize: 16,
                                       color: HexColor(
@@ -461,7 +462,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                                           : "Rodrigo Rosario",
                                                   style: Theme.of(context)
                                                       .textTheme
-                                                      .bodyText1!
+                                                      .bodyLarge!
                                                       .copyWith(
                                                         fontSize: 16,
                                                       ),
@@ -475,7 +476,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                                           : "Jun 30, 2023",
                                                   style: Theme.of(context)
                                                       .textTheme
-                                                      .caption!
+                                                      .bodySmall!
                                                       .copyWith(
                                                         fontSize: 12,
                                                       ),
@@ -498,7 +499,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                                   : "Me gusto muy buen hotel",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 height: 1.4,
                                                 fontSize: 14,
@@ -521,7 +522,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                           .withOpacity(0.2)
                                       : Theme.of(context)
                                           .textTheme
-                                          .bodyText1!
+                                          .bodyLarge!
                                           .color!
                                           .withOpacity(0.1),
                                   borderRadius: BorderRadius.circular(100),
@@ -533,7 +534,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                       "Más  ",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText1!
+                                          .bodyLarge!
                                           .copyWith(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w700,
@@ -583,7 +584,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                   children: [
                     Text(
                       "799BOL",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: HexColor(AppTheme.primaryColorString!),
                             fontSize: 32,
                             fontWeight: FontWeight.w700,
@@ -591,14 +592,14 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                     ),
                     Text(
                       "  / noche",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: const Color(0xff424242),
                             fontSize: 14,
                           ),
                     ),
                     const SizedBox(width: 20),
                     Expanded(
-                      child: CustomButton(
+                      child: CustomlabelLarge(
                         text: "Reservar ahora",
                         onTap: () {
                           Get.to(
@@ -634,7 +635,7 @@ Widget detailCard(String image, String text) {
       const SizedBox(height: 8),
       Text(
         text,
-        style: Theme.of(Get.context!).textTheme.caption!.copyWith(
+        style: Theme.of(Get.context!).textTheme.bodySmall!.copyWith(
               fontSize: 12,
             ),
       ),

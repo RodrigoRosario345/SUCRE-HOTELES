@@ -35,7 +35,7 @@ class FilterView extends StatelessWidget {
                 const Expanded(child: SizedBox()),
                 Text(
                   "Filtrar Hotel por: ",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 24,
                       ),
                 ),
@@ -60,7 +60,7 @@ class FilterView extends StatelessWidget {
                               "Categoria:",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                   ),
@@ -69,7 +69,7 @@ class FilterView extends StatelessWidget {
                               "Ver Todo",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                     color:
@@ -117,7 +117,7 @@ class FilterView extends StatelessWidget {
                         child: Text(
                           "Ordenar por:",
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 18,
                                   ),
                         ),
@@ -158,7 +158,7 @@ class FilterView extends StatelessWidget {
                         child: Text(
                           "Clasificación por estrellas:",
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 18,
                                   ),
                         ),
@@ -202,7 +202,7 @@ class FilterView extends StatelessWidget {
                         child: Text(
                           "Rango de precios: ",
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 18,
                                   ),
                         ),
@@ -230,7 +230,7 @@ class FilterView extends StatelessWidget {
                               "Servicios:",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                   ),
@@ -239,7 +239,7 @@ class FilterView extends StatelessWidget {
                               "Ver Todo",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                     color:
@@ -290,7 +290,7 @@ class FilterView extends StatelessWidget {
                               "Tipo de alojamiento:",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                   ),
@@ -299,7 +299,7 @@ class FilterView extends StatelessWidget {
                               "Ver Todo",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                     color:
@@ -353,7 +353,7 @@ class FilterView extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: CustomButton(
+                    child: CustomlabelLarge(
                       text: "restablecer",
                       onTap: () {
                         Navigator.pop(context);
@@ -363,7 +363,7 @@ class FilterView extends StatelessWidget {
                               .withOpacity(0.1)
                           : Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyLarge!
                               .color!
                               .withOpacity(0.1),
                       textColor: AppTheme.isLightTheme == true
@@ -373,7 +373,7 @@ class FilterView extends StatelessWidget {
                   ),
                   const SizedBox(width: 14),
                   Expanded(
-                    child: CustomButton(
+                    child: CustomlabelLarge(
                       text: "Aplicar filtros",
                       onTap: () {
                         Navigator.pop(context);
@@ -416,7 +416,7 @@ Widget ratingCard(String text, Color bgColor) {
           const SizedBox(width: 10),
           Text(
             text,
-            style: Theme.of(Get.context!).textTheme.bodyText1!.copyWith(
+            style: Theme.of(Get.context!).textTheme.bodyLarge!.copyWith(
                   fontSize: 16,
                   color: bgColor == HexColor(AppTheme.primaryColorString!)
                       ? Colors.white
@@ -454,7 +454,7 @@ Widget tickCard(String text, Color bgColor) {
       const SizedBox(width: 14),
       Text(
         text,
-        style: Theme.of(Get.context!).textTheme.bodyText1!.copyWith(
+        style: Theme.of(Get.context!).textTheme.bodyLarge!.copyWith(
               fontSize: 16,
             ),
       ),

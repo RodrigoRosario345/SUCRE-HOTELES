@@ -83,7 +83,7 @@ class BookMarkView extends StatelessWidget {
                                           : index == 0
                                               ? "Hotel Potosi"
                                               : "Roles Hotel",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 18,
                       ),
                 ),
@@ -97,7 +97,7 @@ class BookMarkView extends StatelessWidget {
                     ),
                     Text(
                       "  4.8  ",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                             color: HexColor(AppTheme.primaryColorString!),
                           ),
@@ -112,7 +112,7 @@ class BookMarkView extends StatelessWidget {
                                   : index == 0
                                       ? "Sucre, Bolivia"
                                       : "Sucre, Bolivia",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                             color: const Color(0xff757575),
                           ),
@@ -132,7 +132,7 @@ class BookMarkView extends StatelessWidget {
                                   : index == 3
                                       ? "BOL37"
                                       : "BOL38",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 18,
                             color: HexColor(AppTheme.primaryColorString!),
                           ),
@@ -140,7 +140,7 @@ class BookMarkView extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text(
                       " / noche",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 10,
                             color: const Color(0xff757575),
                           ),

@@ -27,12 +27,12 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         title: Text(
           "Nueva tarjeta",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
         ),
       ),
       body: Padding(
@@ -99,7 +99,7 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
                 ],
               ),
             ),
-            CustomButton(
+            CustomlabelLarge(
               text: "Agregar tarjeta",
               onTap: () {},
             ),

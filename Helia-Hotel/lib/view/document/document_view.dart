@@ -53,7 +53,7 @@ class _DocumentViewState extends State<DocumentView> {
               const SizedBox(width: 16),
               Text(
                 "Mis Reservas",
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
                     ),
@@ -65,7 +65,7 @@ class _DocumentViewState extends State<DocumentView> {
                 child: SvgPicture.asset(
                   DefaultImages.search,
                   fit: BoxFit.fill,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               )
             ],
@@ -140,7 +140,7 @@ class _DocumentViewState extends State<DocumentView> {
           child: Center(
             child: Text(
               text,
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     fontSize: 15,
                     color: bgColor == Colors.transparent
                         ? HexColor(AppTheme.primaryColorString!)

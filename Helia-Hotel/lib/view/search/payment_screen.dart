@@ -30,12 +30,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         title: Text(
           "Payment",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
         ),
       ),
       body: Padding(
@@ -63,14 +63,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
                               "Métodos de pago",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(fontSize: 16),
                             ),
                             Text(
                               "Agregar nueva tarjeta",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 14,
                                     color:
@@ -109,7 +109,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ],
               ),
             ),
-            CustomButton(
+            CustomlabelLarge(
               text: "Continuar",
               onTap: () {
                 Get.to(

@@ -31,14 +31,14 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                   },
                   child: Icon(
                     Icons.arrow_back,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     size: 30,
                   ),
                 ),
                 const SizedBox(width: 16),
                 Text(
                   "Notificationes",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
                       ),
@@ -50,7 +50,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                   child: SvgPicture.asset(
                     DefaultImages.more,
                     fit: BoxFit.fill,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 )
               ],
@@ -66,7 +66,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                     children: [
                       Text(
                         "Hoy", //today significa
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -86,7 +86,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                       const SizedBox(height: 20),
                       Text(
                         "Ayer",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -106,7 +106,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                       const SizedBox(height: 20),
                       Text(
                         "Junio 28, 2023",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -169,7 +169,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                   children: [
                     Text(
                       text1,
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
                           ),
@@ -177,7 +177,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                     const SizedBox(height: 10),
                     Text(
                       text2,
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                             color: const Color(0xff616161),
                           ),

@@ -31,7 +31,7 @@ class RateBottomSheet extends StatelessWidget {
             Text(
               "Valora el Hotel",
               style:
-                  Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 20),
+                  Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
             ),
             const SizedBox(height: 20),
             const Divider(color: Color(0xffEEEEEE)),
@@ -41,7 +41,7 @@ class RateBottomSheet extends StatelessWidget {
             Text(
               "Por favor dé su calificación y revisión",
               style:
-                  Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 20),
+                  Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
             ),
             const SizedBox(height: 25),
             Row(
@@ -81,23 +81,23 @@ class RateBottomSheet extends StatelessWidget {
             const SizedBox(height: 25),
             Text(
               "Las habitaciones son muy cómodas y las vistas\nnaturales son increíbles, no puedo esperar a volver otra vez!",
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     fontSize: 14,
                   ),
             ),
             const Expanded(child: SizedBox()),
-            CustomButton(
+            CustomlabelLarge(
               text: "Califica ahora",
               onTap: () {},
             ),
             const SizedBox(height: 15),
-            CustomButton(
+            CustomlabelLarge(
               text: "Más tarde",
               bgColor: AppTheme.isLightTheme == true
                   ? HexColor(AppTheme.primaryColorString!).withOpacity(0.1)
                   : Theme.of(context)
                       .textTheme
-                      .bodyText1!
+                      .bodyLarge!
                       .color!
                       .withOpacity(0.1),
               textColor: AppTheme.isLightTheme == true

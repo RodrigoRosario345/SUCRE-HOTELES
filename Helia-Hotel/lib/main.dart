@@ -112,7 +112,6 @@ class _MyAppState extends State<MyApp> {
       ],
       supportedLocales: const [
         Locale('es', ''), // Español
-        // Agrega aquí otros idiomas que quieras soportar
       ],
       title: 'Hoteles Sucre',
       theme: AppTheme.getTheme(),

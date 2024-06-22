@@ -95,7 +95,7 @@ class _HomeViewState extends State<HomeView> {
               const SizedBox(width: 16),
               Text(
                 "Hoteles Sucre",
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
                     ),
@@ -114,7 +114,7 @@ class _HomeViewState extends State<HomeView> {
                   child: SvgPicture.asset(
                     DefaultImages.notification,
                     fit: BoxFit.fill,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ),
@@ -125,7 +125,7 @@ class _HomeViewState extends State<HomeView> {
                 child: SvgPicture.asset(
                   DefaultImages.bookmark,
                   fit: BoxFit.fill,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               )
             ],
@@ -144,7 +144,7 @@ class _HomeViewState extends State<HomeView> {
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Text(
                       "Hola, Rodrigo Rosario",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 25,
                             fontWeight: FontWeight.w700,
                           ),
@@ -312,7 +312,7 @@ class _HomeViewState extends State<HomeView> {
                                                           style:
                                                               Theme.of(context)
                                                                   .textTheme
-                                                                  .bodyText1!
+                                                                  .bodyLarge!
                                                                   .copyWith(
                                                                     fontSize:
                                                                         16,
@@ -334,7 +334,7 @@ class _HomeViewState extends State<HomeView> {
                                                   _hoteles[index].nombre,
                                                   style: Theme.of(context)
                                                       .textTheme
-                                                      .bodyText1!
+                                                      .bodyLarge!
                                                       .copyWith(
                                                         fontSize: 18,
                                                         color: Colors.white,
@@ -345,7 +345,7 @@ class _HomeViewState extends State<HomeView> {
                                                   _hoteles[index].lugar,
                                                   style: Theme.of(context)
                                                       .textTheme
-                                                      .bodyText1!
+                                                      .bodyLarge!
                                                       .copyWith(
                                                         fontSize: 14,
                                                         color: Colors.white,
@@ -358,7 +358,7 @@ class _HomeViewState extends State<HomeView> {
                                                       "${_hoteles[index].precio}BOL",
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .bodyText1!
+                                                          .bodyLarge!
                                                           .copyWith(
                                                             fontSize: 16,
                                                             color: Colors.white,
@@ -368,7 +368,7 @@ class _HomeViewState extends State<HomeView> {
                                                       "/ precio",
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .bodyText1!
+                                                          .bodyLarge!
                                                           .copyWith(
                                                             fontSize: 14,
                                                             color: Colors.white,
@@ -413,7 +413,7 @@ class _HomeViewState extends State<HomeView> {
                           Text(
                             "Recientemente visitados", //Recently Booked //Reservaciones recientes
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 18,
                                     ),
                           ),
@@ -421,7 +421,7 @@ class _HomeViewState extends State<HomeView> {
                             "Ver todo", //See All //Ver todo
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(
                                   fontSize: 16,
                                   color: HexColor(AppTheme.primaryColorString!),
@@ -494,7 +494,7 @@ class _HomeViewState extends State<HomeView> {
                                                 _hoteles[index].nombre,
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .bodyText1!
+                                                    .bodyLarge!
                                                     .copyWith(
                                                       fontSize: 16,
                                                       fontWeight:
@@ -507,7 +507,7 @@ class _HomeViewState extends State<HomeView> {
                                                     .lugar, //Sucre, Bolivia
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .bodyText1!
+                                                    .bodyLarge!
                                                     .copyWith(
                                                       fontSize: 14,
                                                       color: const Color(
@@ -526,7 +526,7 @@ class _HomeViewState extends State<HomeView> {
                                                     "  4.8  ",
                                                     style: Theme.of(context)
                                                         .textTheme
-                                                        .bodyText1!
+                                                        .bodyLarge!
                                                         .copyWith(
                                                           fontSize: 14,
                                                           color: HexColor(AppTheme
@@ -537,7 +537,7 @@ class _HomeViewState extends State<HomeView> {
                                                     "120",
                                                     style: Theme.of(context)
                                                         .textTheme
-                                                        .bodyText1!
+                                                        .bodyLarge!
                                                         .copyWith(
                                                           fontSize: 14,
                                                           color: const Color(
@@ -558,7 +558,7 @@ class _HomeViewState extends State<HomeView> {
                                                 "${_hoteles[index].precio} BOL",
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .bodyText1!
+                                                    .bodyLarge!
                                                     .copyWith(
                                                       fontSize: 15,
                                                       color: HexColor(AppTheme
@@ -570,7 +570,7 @@ class _HomeViewState extends State<HomeView> {
                                                 "/ noche",
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .bodyText1!
+                                                    .bodyLarge!
                                                     .copyWith(
                                                       fontSize: 10,
                                                       color: const Color(
@@ -666,11 +666,11 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HotelDetailScreen(),
+                builder: (context) => const HotelDetailScreen(),
               ),
             );
           },
-          title: Text(result, style: TextStyle(fontSize: 18)),
+          title: Text(result, style: const TextStyle(fontSize: 18)),
         );
       },
     );

@@ -73,7 +73,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                       : "Hotel Monasterio",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700,
@@ -88,7 +88,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                       : "Sucre, Bolivia",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 14,
                                     color: const Color(0xff616161),
@@ -109,7 +109,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                   "Pagado",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .copyWith(
                                         fontSize: 10,
                                         color: HexColor(
@@ -155,7 +155,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                           "Cancelar reserva",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 24,
                                                 color: const Color(0xffF75555),
@@ -168,7 +168,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                           "Estás seguro/a de que quieres cancelar tu reserva de hotel?",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 16,
                                                 height: 1.6,
@@ -180,7 +180,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                           "Solo se puede reembolsar el 80% del dinero de tu pago según nuestra política",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 fontSize: 14,
                                                 height: 1.6,
@@ -191,16 +191,16 @@ class _OnGoingViewState extends State<OnGoingView> {
                                         Row(
                                           children: [
                                             Expanded(
-                                              child: CustomButton(
+                                              child: CustomlabelLarge(
                                                 text: "Cancelar",
                                                 bgColor: Theme.of(context)
                                                     .textTheme
-                                                    .bodyText1!
+                                                    .bodyLarge!
                                                     .color!
                                                     .withOpacity(0.1),
                                                 textColor: Theme.of(context)
                                                     .textTheme
-                                                    .bodyText1!
+                                                    .bodyLarge!
                                                     .color,
                                                 onTap: () {
                                                   Navigator.pop(context);
@@ -209,7 +209,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                             ),
                                             const SizedBox(width: 15),
                                             Expanded(
-                                              child: CustomButton(
+                                              child: CustomlabelLarge(
                                                 text: "Si, Continuar",
                                                 onTap: () {
                                                   Get.to(
@@ -242,7 +242,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                   "Cancelar reserva",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .copyWith(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700,
@@ -270,7 +270,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                   "Ver boleto",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .copyWith(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700,

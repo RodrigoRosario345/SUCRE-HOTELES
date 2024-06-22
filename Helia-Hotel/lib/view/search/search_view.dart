@@ -124,7 +124,7 @@ class _SearchViewState extends State<SearchView> {
                     children: [
                       Text(
                         "Recomendado (17)",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 18,
                             ),
                       ),
@@ -142,7 +142,7 @@ class _SearchViewState extends State<SearchView> {
                         width: 28,
                         child: SvgPicture.asset(
                           DefaultImages.category,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       )
                     ],
@@ -152,7 +152,7 @@ class _SearchViewState extends State<SearchView> {
                   padding: const EdgeInsets.only(left: 20),
                   child: Text(
                     "Reciente",
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 18,
                         ),
                   ),
@@ -237,7 +237,7 @@ class _SearchViewState extends State<SearchView> {
                                                       : "Hotel Monasterio",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.w700,
@@ -254,7 +254,7 @@ class _SearchViewState extends State<SearchView> {
                                                       : "Sucre, Bolvia",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 14,
                                                 color: const Color(0xff757575),
@@ -272,7 +272,7 @@ class _SearchViewState extends State<SearchView> {
                                               "  4.8  ",
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyText1!
+                                                  .bodyLarge!
                                                   .copyWith(
                                                     fontSize: 14,
                                                     color: HexColor(AppTheme
@@ -291,7 +291,7 @@ class _SearchViewState extends State<SearchView> {
                                                               : "(4 vistas)",
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyText1!
+                                                  .bodyLarge!
                                                   .copyWith(
                                                     fontSize: 14,
                                                     color:
@@ -310,17 +310,17 @@ class _SearchViewState extends State<SearchView> {
                                       children: [
                                         Text(
                                           index == 0
-                                              ? "\ BOL 427"
+                                              ? "BOL 427"
                                               : index == 1
-                                                  ? "\ BOL 322"
+                                                  ? "BOL 322"
                                                   : index == 2
-                                                      ? "\ BOL 532"
+                                                      ? "BOL 532"
                                                       : index == 3
-                                                          ? "\BOL 232"
-                                                          : "\BOL 523",
+                                                          ? "BOL 232"
+                                                          : "BOL 523",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 18,
                                                 color: HexColor(AppTheme
@@ -332,7 +332,7 @@ class _SearchViewState extends State<SearchView> {
                                           "/ noche",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 10,
                                                 color: const Color(0xff757575),
@@ -346,7 +346,7 @@ class _SearchViewState extends State<SearchView> {
                                             DefaultImages.bookmark,
                                             color: Theme.of(context)
                                                 .textTheme
-                                                .bodyText1!
+                                                .bodyLarge!
                                                 .color,
                                           ),
                                         ),
@@ -390,7 +390,7 @@ class _SearchViewState extends State<SearchView> {
                                                     : "Sucre, Bolvia",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       color: const Color(0xff757575),
                                       fontSize: 18,
@@ -443,7 +443,7 @@ Widget searchCard(String text, Color bgColor, VoidCallback onTap) {
         child: Center(
           child: Text(
             text,
-            style: Theme.of(Get.context!).textTheme.bodyText1!.copyWith(
+            style: Theme.of(Get.context!).textTheme.bodyLarge!.copyWith(
                   fontSize: 16,
                   color: bgColor == HexColor(AppTheme.primaryColorString!)
                       ? Colors.white
@@ -553,10 +553,10 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildSearchField(BuildContext context) {
     return TextField(
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 18, // Tamaño de fuente para el texto ingresado
       ),
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Search",
         border: InputBorder.none,
         hintStyle: TextStyle(

@@ -29,13 +29,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
         title: Text(
           "Edit Profile",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 24,
               ),
         ),
@@ -94,13 +94,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       CustomTextField(
                         hintText: "número de teléfono",
                         textFieldController:
-                            TextEditingController(text: "+591 111 467 378 399"),
+                            TextEditingController(text: "+591 78328213"),
                         sufix: const SizedBox(),
                         prefix: Padding(
                           padding: const EdgeInsets.all(14.0),
-                          // child: SvgPicture.asset(
-                          //   DefaultImages.p2,
-                          // ),
+                          child: SvgPicture.asset(
+                            DefaultImages.p2,
+                          ),
                         ),
                         onChanged: (value) {},
                         suffix: const InkWell(),
@@ -109,7 +109,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       CustomField(
                         hintText: "name",
                         textFieldController:
-                            TextEditingController(text: "Male"),
+                            TextEditingController(text: "Masculino"),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
@@ -123,8 +123,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ],
               ),
             ),
-            CustomButton(
-              text: "Update",
+            CustomlabelLarge(
+              text: "Actualizar",
               onTap: () {
                 Get.offAll(
                   const TabScreen(),

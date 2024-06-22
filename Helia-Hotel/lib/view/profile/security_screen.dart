@@ -30,13 +30,13 @@ class _SecurityScreenState extends State<SecurityScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
         title: Text(
           "Seguridad",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 24,
               ),
         ),
@@ -104,13 +104,13 @@ class _SecurityScreenState extends State<SecurityScreen> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
-            child: CustomButton(
+            child: CustomlabelLarge(
               text: "Cambiar la contraseña",
               bgColor: AppTheme.isLightTheme == true
                   ? HexColor(AppTheme.primaryColorString!).withOpacity(0.1)
                   : Theme.of(context)
                       .textTheme
-                      .bodyText1!
+                      .bodyLarge!
                       .color!
                       .withOpacity(0.1),
               textColor: AppTheme.isLightTheme == true

@@ -71,7 +71,7 @@ class _CanceledViewState extends State<CanceledView> {
                                       : "Hotel Monasterio",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700,
@@ -86,7 +86,7 @@ class _CanceledViewState extends State<CanceledView> {
                                       : "Sucre, Bolivia",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 14,
                                     color: const Color(0xff616161),
@@ -106,7 +106,7 @@ class _CanceledViewState extends State<CanceledView> {
                                   "Cancelado y reembolsado",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .copyWith(
                                         fontSize: 13,
                                         color: const Color(0xffF75555),
@@ -142,7 +142,7 @@ class _CanceledViewState extends State<CanceledView> {
                               "Has cancelado esta reserva de hotel",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     fontSize: 15,
                                     color: const Color(0xffF75555),

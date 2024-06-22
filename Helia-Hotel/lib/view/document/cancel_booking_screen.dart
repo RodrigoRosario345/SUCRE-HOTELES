@@ -27,13 +27,13 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
         title: Text(
           "Cancelar reserva de hotel",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 22,
               ),
         ),
@@ -52,7 +52,7 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
                     children: [
                       Text(
                         "Seleccione un método de reembolso de pago (solo\nse reembolsará el 80 %).",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 18,
                               height: 1.6,
                             ),
@@ -92,14 +92,14 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
               children: [
                 Text(
                   "Pagado: \ 479.5BOL   ",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 18,
                         color: const Color(0xff424242),
                       ),
                 ),
                 Text(
                   "Reembolso: \ 383.8BOL",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 18,
                         color: const Color(0xff424242),
                       ),
@@ -107,12 +107,12 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
               ],
             ),
             const SizedBox(height: 20),
-            CustomButton(
+            CustomlabelLarge(
               text: "Confirmar cancelación",
               onTap: () {
                 Get.dialog(
                   AlertDialog(
-                    buttonPadding: EdgeInsets.zero,
+                    contentPadding: EdgeInsets.zero,
                     titlePadding: EdgeInsets.zero,
                     actionsPadding: EdgeInsets.zero,
                     insetPadding: const EdgeInsets.only(left: 30, right: 30),
@@ -143,7 +143,7 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
                             "Exitoso!",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w700,
@@ -154,7 +154,7 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
                           Text(
                             "Has cancelado con éxito tu\npedido. 80% de los fondos serán devueltos a\nsu cuenta",
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 16,
                                       height: 1.6,
                                       color: const Color(0xff09101D),
@@ -162,7 +162,7 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 30),
-                          CustomButton(
+                          CustomlabelLarge(
                             text: "OK",
                             onTap: () {
                               Navigator.pop(context);
@@ -217,7 +217,7 @@ Widget card(String image, String text, Color color) {
           const SizedBox(width: 14),
           Text(
             text,
-            style: Theme.of(Get.context!).textTheme.bodyText1!.copyWith(
+            style: Theme.of(Get.context!).textTheme.bodyLarge!.copyWith(
                   fontSize: 18,
                 ),
           ),

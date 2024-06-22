@@ -31,13 +31,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
         title: Text(
           "Olvidé mi contraseña",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 24,
               ),
         ),
@@ -71,7 +71,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       const SizedBox(height: 30),
                       Text(
                         "Selecciona qué detalles de contacto debemos usar para restablecer \ntu contraseña",
-                        style: Theme.of(context).textTheme.caption!.copyWith(
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               fontSize: 16,
                             ),
                       ),
@@ -109,7 +109,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ],
               ),
             ),
-            CustomButton(
+            CustomlabelLarge(
               text: "Continuar",
               onTap: () {
                 Get.off(
@@ -168,14 +168,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 children: [
                   Text(
                     text1,
-                    style: Theme.of(context).textTheme.caption!.copyWith(
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontSize: 14,
                         ),
                   ),
                   const SizedBox(height: 10),
                   Text(
                     text2,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                         ),

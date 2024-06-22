@@ -29,13 +29,13 @@ class _FillProfileScreenState extends State<FillProfileScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
         title: Text(
-          "Fill Your Profile",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          "Llene su perfil",
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 24,
               ),
         ),
@@ -69,49 +69,49 @@ class _FillProfileScreenState extends State<FillProfileScreen> {
                       ),
                       const SizedBox(height: 20),
                       CustomField(
-                        hintText: "name",
+                        hintText: "nombre",
                         textFieldController:
-                            TextEditingController(text: "Daniel Austin"),
+                            TextEditingController(text: "Rodrigo"),
                         sufix: const SizedBox(),
                       ),
                       const SizedBox(height: 15),
                       CustomField(
-                        hintText: "name",
+                        hintText: "apellidos",
                         textFieldController:
-                            TextEditingController(text: "Daniel"),
+                            TextEditingController(text: "Rosario Cruz"),
                         sufix: const SizedBox(),
                       ),
                       const SizedBox(height: 15),
                       CustomField(
-                        hintText: "name",
+                        hintText: "fecha_nacimiento",
                         textFieldController:
                             TextEditingController(text: "12/27/1995"),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
                             DefaultImages.calendar,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),
                       const SizedBox(height: 20),
                       CustomField(
-                        hintText: "name",
+                        hintText: "email",
                         textFieldController: TextEditingController(
-                            text: "daniel_austin@yourdomain.com"),
+                            text: "rodrigorosario@gmail.com"),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
                             DefaultImages.p4,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),
                       const SizedBox(height: 20),
                       CustomTextField(
-                        hintText: "name",
+                        hintText: "numero",
                         textFieldController:
-                            TextEditingController(text: "+1 111 467 378 399"),
+                            TextEditingController(text: "+591 78328213"),
                         sufix: const SizedBox(),
                         prefix: Padding(
                           padding: const EdgeInsets.all(14.0),
@@ -124,14 +124,14 @@ class _FillProfileScreenState extends State<FillProfileScreen> {
                       ),
                       const SizedBox(height: 20),
                       CustomField(
-                        hintText: "name",
+                        hintText: "sexo",
                         textFieldController:
-                            TextEditingController(text: "Male"),
+                            TextEditingController(text: "Masculino"),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
                             DefaultImages.arrow,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),
@@ -141,7 +141,7 @@ class _FillProfileScreenState extends State<FillProfileScreen> {
                 ],
               ),
             ),
-            CustomButton(
+            CustomlabelLarge(
               text: "Continue",
               onTap: () {
                 Get.offAll(

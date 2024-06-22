@@ -30,7 +30,7 @@ class _OptionScreenState extends State<OptionScreen> {
               children: [
                 Icon(
                   Icons.arrow_back,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                   size: 25,
                 )
               ],
@@ -45,18 +45,18 @@ class _OptionScreenState extends State<OptionScreen> {
                   Center(
                     child: Text(
                       "Inicia sesión con",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 40,
                             fontWeight: FontWeight.w700,
                           ),
                     ),
                   ),
                   const Expanded(child: SizedBox()),
-                  socialButton(DefaultImages.s1, "Continuar con Facebook"),
+                  sociallabelLarge(DefaultImages.s1, "Continuar con Facebook"),
                   const SizedBox(height: 10),
-                  socialButton(DefaultImages.s2, "Continuar con Google"),
+                  sociallabelLarge(DefaultImages.s2, "Continuar con Google"),
                   const SizedBox(height: 10),
-                  socialButton(DefaultImages.s3, "Continuar con Apple"),
+                  sociallabelLarge(DefaultImages.s3, "Continuar con Apple"),
                   const SizedBox(height: 30),
                   // const Expanded(child: SizedBox()),
                   Row(
@@ -70,7 +70,7 @@ class _OptionScreenState extends State<OptionScreen> {
                       const SizedBox(width: 14),
                       Text(
                         "o",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 18,
                               color: const Color(0xff616161),
                             ),
@@ -85,7 +85,7 @@ class _OptionScreenState extends State<OptionScreen> {
                     ],
                   ),
                   const Expanded(child: SizedBox()),
-                  CustomButton(
+                  CustomlabelLarge(
                     text: "Iniciar sesión con contraseña",
                     onTap: () {
                       Get.to(
@@ -115,7 +115,7 @@ class _OptionScreenState extends State<OptionScreen> {
                         Text(
                           "¿No tienes una cuenta?  ",
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 14,
                                     color: const Color(0xff9E9E9E),
                                   ),
@@ -124,7 +124,7 @@ class _OptionScreenState extends State<OptionScreen> {
                           "registrarse", //al español: Regístrate
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyLarge!
                               .copyWith(
                                 fontSize: 14,
                                 color: HexColor(AppTheme.primaryColorString!),
@@ -143,7 +143,7 @@ class _OptionScreenState extends State<OptionScreen> {
     );
   }
 
-  Widget socialButton(String image, String text) {
+  Widget sociallabelLarge(String image, String text) {
     return Container(
       height: 60,
       width: Get.width,
@@ -183,7 +183,7 @@ class _OptionScreenState extends State<OptionScreen> {
           const SizedBox(width: 14),
           Text(
             text,
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontSize: 16,
                 ),
           ),

@@ -33,7 +33,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                   },
                   child: Icon(
                     Icons.arrow_back,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     size: 30,
                   ),
                 ),
@@ -43,7 +43,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                     homeController.recently.value == 0
                         ? "Todas las reservas"
                         : "Mi marcador",
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
                         ),
@@ -63,7 +63,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                         fit: BoxFit.fill,
                         color: homeController.recently.value == 0
                             ? HexColor(AppTheme.primaryColorString!)
-                            : Theme.of(context).textTheme.bodyText1!.color,
+                            : Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                   ),
@@ -82,7 +82,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                         fit: BoxFit.fill,
                         color: homeController.recently.value == 1
                             ? HexColor(AppTheme.primaryColorString!)
-                            : Theme.of(context).textTheme.bodyText1!.color,
+                            : Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                   ),
@@ -163,7 +163,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                                                           : "Hotel villa antigua",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.w700,
@@ -182,7 +182,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                                                           : "Sucre, Bolvia",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 14,
                                                 color: const Color(0xff757575),
@@ -200,7 +200,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                                               "  4.8  ",
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyText1!
+                                                  .bodyLarge!
                                                   .copyWith(
                                                     fontSize: 14,
                                                     color: HexColor(AppTheme
@@ -219,7 +219,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                                                               : "(3 vistas)",
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyText1!
+                                                  .bodyLarge!
                                                   .copyWith(
                                                     fontSize: 14,
                                                     color:
@@ -248,7 +248,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                                                           : "700 BOL",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 18,
                                                 color: HexColor(AppTheme
@@ -260,7 +260,7 @@ class _RecentlyBookScreenState extends State<RecentlyBookScreen> {
                                           "/ noche",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 10,
                                                 color: const Color(0xff757575),

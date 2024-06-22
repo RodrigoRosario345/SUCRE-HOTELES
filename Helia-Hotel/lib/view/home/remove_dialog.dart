@@ -31,7 +31,7 @@ class RemoveDialog extends StatelessWidget {
             const SizedBox(height: 20),
             Text(
               "Quitar de marcador?",
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     fontSize: 22,
                   ),
             ),
@@ -77,7 +77,7 @@ class RemoveDialog extends StatelessWidget {
                           Text(
                             "Hotel Monasterio",
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -86,7 +86,7 @@ class RemoveDialog extends StatelessWidget {
                           Text(
                             "Sucre Bolvia",
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 14,
                                       color: const Color(0xff757575),
                                     ),
@@ -103,7 +103,7 @@ class RemoveDialog extends StatelessWidget {
                                 "  4.8  ",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       fontSize: 14,
                                       color: HexColor(
@@ -114,7 +114,7 @@ class RemoveDialog extends StatelessWidget {
                                 "(3,672 reviews)",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       fontSize: 14,
                                       color: const Color(0xff757575),
@@ -133,7 +133,7 @@ class RemoveDialog extends StatelessWidget {
                             "\$36",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(
                                   fontSize: 18,
                                   color: HexColor(AppTheme.primaryColorString!),
@@ -143,7 +143,7 @@ class RemoveDialog extends StatelessWidget {
                           Text(
                             "/ night",
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 10,
                                       color: const Color(0xff757575),
                                     ),
@@ -167,13 +167,13 @@ class RemoveDialog extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: CustomButton(
+                  child: CustomlabelLarge(
                     text: "Cancel",
                     bgColor: AppTheme.isLightTheme == true
                         ? HexColor(AppTheme.primaryColorString!)
                         : Theme.of(context)
                             .textTheme
-                            .bodyText1!
+                            .bodyLarge!
                             .color!
                             .withOpacity(0.1),
                     textColor: AppTheme.isLightTheme == true
@@ -186,7 +186,7 @@ class RemoveDialog extends StatelessWidget {
                 ),
                 const SizedBox(width: 15),
                 Expanded(
-                  child: CustomButton(
+                  child: CustomlabelLarge(
                     text: "Yes, Remove",
                     onTap: () {
                       Navigator.pop(context);

@@ -26,12 +26,12 @@ class _TicketScreenState extends State<TicketScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color!,
+            color: Theme.of(context).textTheme.bodyLarge!.color!,
           ),
         ),
         title: Text(
           "Boleto",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
         ),
       ),
       body: Padding(
@@ -70,7 +70,7 @@ class _TicketScreenState extends State<TicketScreen> {
                               "Hotel On boutique",
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(fontSize: 20),
                             ),
                           ),
@@ -120,7 +120,7 @@ class _TicketScreenState extends State<TicketScreen> {
                 ],
               ),
             ),
-            CustomButton(
+            CustomlabelLarge(
               text: "Descargar Boleto",
               onTap: () {},
             ),
@@ -138,7 +138,7 @@ class _TicketScreenState extends State<TicketScreen> {
         children: [
           Text(
             text1,
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontSize: 16,
                   color: const Color(0xff757575),
                 ),
@@ -147,7 +147,7 @@ class _TicketScreenState extends State<TicketScreen> {
           Text(
             text2,
             style:
-                Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16),
+                Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16),
           ),
         ],
       ),

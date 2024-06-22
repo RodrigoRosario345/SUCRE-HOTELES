@@ -26,7 +26,7 @@ class CustomTextField extends StatelessWidget {
       width: Get.width,
       child: TextFormField(
         controller: textFieldController,
-        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               fontSize: 14,
             ),
         decoration: InputDecoration(
@@ -50,7 +50,7 @@ class CustomTextField extends StatelessWidget {
               color: Colors.transparent,
             ),
           ),
-          hintStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
+          hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: const Color(0xff9E9E9E),
                 fontSize: 14,
               ),
@@ -79,7 +79,7 @@ class CustomField extends StatelessWidget {
       width: Get.width,
       child: TextFormField(
         controller: textFieldController,
-        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               fontSize: 14,
             ),
         decoration: InputDecoration(
@@ -102,7 +102,7 @@ class CustomField extends StatelessWidget {
               color: Colors.transparent,
             ),
           ),
-          hintStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
+          hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: const Color(0xff9E9E9E),
                 fontSize: 14,
               ),

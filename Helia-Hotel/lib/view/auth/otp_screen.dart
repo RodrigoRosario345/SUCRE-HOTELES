@@ -28,13 +28,13 @@ class _OTPScreenState extends State<OTPScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
         title: Text(
           "Olvidé mi contraseña",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 24,
               ),
         ),
@@ -49,7 +49,7 @@ class _OTPScreenState extends State<OTPScreen> {
               children: [
                 Text(
                   "Se ha enviado el código a +591 77******42",
-                  style: Theme.of(context).textTheme.caption!.copyWith(
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                       ),
@@ -59,7 +59,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   defaultPinTheme: PinTheme(
                     height: 61,
                     width: 78,
-                    textStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 24,
                           fontWeight: FontWeight.w700,
                         ),
@@ -71,7 +71,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       border: Border.all(
                         color: Theme.of(context)
                             .textTheme
-                            .bodyText1!
+                            .bodyLarge!
                             .color!
                             .withOpacity(0.1),
                       ),
@@ -84,14 +84,14 @@ class _OTPScreenState extends State<OTPScreen> {
                   children: [
                     Text(
                       "Volver a enviar el código en ",
-                      style: Theme.of(context).textTheme.caption!.copyWith(
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
                     ),
                     Text(
                       "53 ",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: HexColor(AppTheme.primaryColorString!),
@@ -99,7 +99,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     ),
                     Text(
                       "segundos",
-                      style: Theme.of(context).textTheme.caption!.copyWith(
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -111,7 +111,7 @@ class _OTPScreenState extends State<OTPScreen> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-            child: CustomButton(
+            child: CustomlabelLarge(
               text: "verificar",
               onTap: () {
                 Get.to(

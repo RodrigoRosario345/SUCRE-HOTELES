@@ -50,7 +50,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   ? "\n\nDescubre los lugares \ntesoros de Sucre"
                                   : "\n\nDescubramos\na Sucre juntos",
                           style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 33,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -65,16 +65,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               : splashController.flag.value == 1
                                   ? "Sumérgete en la cultura local explorando centros y lugares turisticos que hacen de Sucre la ciudad que es Ciudad Blanca de America."
                                   : "Podrás disfrutar de hermosos paisajes naturales como el Parque Cretácico o el Parque Bolívar. ¡Sucre te espera con los brazos abiertos para que vivas una experiencia inolvidable!",
-                          style: Theme.of(context).textTheme.caption!.copyWith(
-                                fontSize: 15,
-                                height: 1.4,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall!.copyWith(
+                                    fontSize: 15,
+                                    height: 1.4,
+                                  ),
                         ),
                       ),
                       const Expanded(child: SizedBox()),
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: CustomButton(
+                        child: CustomlabelLarge(
                           text: "Siguiente",
                           onTap: () {
                             splashController.flag.value =
@@ -91,14 +92,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       const SizedBox(height: 10),
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: CustomButton(
+                        child: CustomlabelLarge(
                           text: "Saltar",
                           bgColor: AppTheme.isLightTheme == true
                               ? HexColor(AppTheme.primaryColorString!)
                                   .withOpacity(0.1)
                               : Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .color!
                                   .withOpacity(0.1),
                           textColor: AppTheme.isLightTheme == true

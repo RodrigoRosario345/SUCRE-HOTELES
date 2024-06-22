@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Text(
                   "Inicia sesión\ncon tu cuenta",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 48,
                         fontWeight: FontWeight.w700,
                       ),
@@ -138,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(width: 14),
                     Text(
                       "Recuérdame",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
                           ),
@@ -146,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                CustomButton(
+                CustomlabelLarge(
                   text: "Iniciar sesión",
                   onTap: () async {
                     String username = usernameController.text;
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Center(
                     child: Text(
                       "Olvidaste la contraseña?",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 16,
                             color: HexColor(AppTheme.primaryColorString!),
                           ),
@@ -184,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(width: 14),
                     Text(
                       "o continua con",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 18,
                             color: const Color(0xff616161),
                           ),
@@ -202,11 +202,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    socialButton(DefaultImages.s1),
+                    sociallabelLarge(DefaultImages.s1),
                     const SizedBox(width: 20),
-                    socialButton(DefaultImages.s2),
+                    sociallabelLarge(DefaultImages.s2),
                     const SizedBox(width: 20),
-                    socialButton(DefaultImages.s3),
+                    sociallabelLarge(DefaultImages.s3),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -222,14 +222,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text(
                         "No tienes una cuenta?  ",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 14,
                               color: const Color(0xff9E9E9E),
                             ),
                       ),
                       Text(
                         "Registrarse",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 14,
                               color: HexColor(AppTheme.primaryColorString!),
                             ),
@@ -245,7 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget socialButton(String image) {
+  Widget sociallabelLarge(String image) {
     return Container(
       height: 60,
       width: 88,

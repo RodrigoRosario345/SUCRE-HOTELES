@@ -27,13 +27,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             size: 25,
           ),
         ),
         title: Text(
           "Notificacion",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 24,
               ),
         ),
@@ -139,7 +139,7 @@ Widget rowData(String text, Widget widget) {
     children: [
       Text(
         text,
-        style: Theme.of(Get.context!).textTheme.bodyText1!.copyWith(
+        style: Theme.of(Get.context!).textTheme.bodyLarge!.copyWith(
               fontSize: 18,
             ),
       ),

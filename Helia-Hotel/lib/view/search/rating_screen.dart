@@ -27,19 +27,19 @@ class _RatingScreenState extends State<RatingScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         title: Text(
           "Review",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SvgPicture.asset(
               DefaultImages.more,
-              color: Theme.of(context).textTheme.bodyText1!.color,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ),
         ],
@@ -90,7 +90,7 @@ class _RatingScreenState extends State<RatingScreen> {
                       "Rating",
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1!
+                          .bodyLarge!
                           .copyWith(fontSize: 16),
                     ),
                     const SizedBox(width: 14),
@@ -101,14 +101,14 @@ class _RatingScreenState extends State<RatingScreen> {
                     ),
                     Text(
                       "  4.8  ",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                             color: HexColor(AppTheme.primaryColorString!),
                           ),
                     ),
                     Text(
                       "(4,981 reviews)",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                             color: const Color(0xff757575),
                           ),
@@ -116,7 +116,7 @@ class _RatingScreenState extends State<RatingScreen> {
                     const Expanded(child: SizedBox()),
                     Text(
                       "See All",
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 16,
                             color: HexColor(AppTheme.primaryColorString!),
                           ),
@@ -182,7 +182,7 @@ class _RatingScreenState extends State<RatingScreen> {
                                                   : "Kristin Watson",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(
                                                 fontSize: 16,
                                               ),
@@ -196,7 +196,7 @@ class _RatingScreenState extends State<RatingScreen> {
                                                   : "Dec 09, 2024",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 fontSize: 12,
                                               ),
@@ -217,7 +217,7 @@ class _RatingScreenState extends State<RatingScreen> {
                                           : "The rooms are very comfortable and the natural views are amazing, can't wait to come back again!",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .caption!
+                                      .bodySmall!
                                       .copyWith(
                                         height: 1.4,
                                         fontSize: 14,

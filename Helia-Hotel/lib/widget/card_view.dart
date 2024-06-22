@@ -48,7 +48,7 @@ class CardView extends StatelessWidget {
                 children: [
                   Text(
                     "Hotel On boutique",
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                         ),
@@ -56,7 +56,7 @@ class CardView extends StatelessWidget {
                   const SizedBox(height: 15),
                   Text(
                     "Sucre, Bolivia",
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 14,
                           color: const Color(0xff757575),
                         ),
@@ -71,14 +71,14 @@ class CardView extends StatelessWidget {
                       ),
                       Text(
                         "  4.8  ",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 14,
                               color: HexColor(AppTheme.primaryColorString!),
                             ),
                       ),
                       Text(
                         "(3 vistas)",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontSize: 14,
                               color: const Color(0xff757575),
                             ),
@@ -94,7 +94,7 @@ class CardView extends StatelessWidget {
                 children: [
                   Text(
                     "\ 360BOL",
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 18,
                           color: HexColor(AppTheme.primaryColorString!),
                         ),
@@ -102,7 +102,7 @@ class CardView extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     "/ noche",
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 10,
                           color: const Color(0xff757575),
                         ),

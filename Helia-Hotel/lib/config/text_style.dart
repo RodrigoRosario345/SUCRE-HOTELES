@@ -20,59 +20,59 @@ class AppTheme {
 
   static TextTheme _buildTextTheme(TextTheme base) {
     return base.copyWith(
-      headline6: GoogleFonts.sourceSansPro(
-        color: base.headline6!.color,
-        fontSize: 10,
-        fontWeight: FontWeight.w500,
-      ),
-      subtitle1: GoogleFonts.sourceSansPro(
-        color: base.subtitle1!.color,
+      // headlineLarge: GoogleFonts.sourceSansPro(
+      //   color: base.headlineLarge!.color,
+      //   fontSize: 10,
+      //   fontWeight: FontWeight.w500,
+      // ),
+      titleMedium: GoogleFonts.sourceSansPro(
+        color: base.titleMedium!.color,
         fontSize: 20,
       ),
-      subtitle2: GoogleFonts.sourceSansPro(
-        color: base.subtitle2!.color,
+      titleSmall: GoogleFonts.sourceSansPro(
+        color: base.titleSmall!.color,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
-      bodyText2: GoogleFonts.sourceSansPro(
-        color: base.bodyText2!.color,
+      bodyMedium: GoogleFonts.sourceSansPro(
+        color: base.bodyMedium!.color,
         fontSize: 10,
       ),
-      bodyText1: GoogleFonts.sourceSansPro(
-        color: base.bodyText1!.color,
+      bodyLarge: GoogleFonts.sourceSansPro(
+        color: base.bodyLarge!.color,
         fontSize: 10,
       ),
-      button: GoogleFonts.sourceSansPro(
-        color: base.button!.color,
+      labelLarge: GoogleFonts.sourceSansPro(
+        color: base.labelLarge!.color,
         fontSize: 10,
         fontWeight: FontWeight.w500,
       ),
-      caption: GoogleFonts.sourceSansPro(
-        color: base.caption!.color,
+      bodySmall: GoogleFonts.sourceSansPro(
+        color: base.bodySmall!.color,
         fontSize: 10,
       ),
-      headline4: GoogleFonts.sourceSansPro(
-        color: base.headline4!.color,
+      headlineMedium: GoogleFonts.sourceSansPro(
+        color: base.headlineMedium!.color,
         fontSize: 10,
       ),
-      headline3: GoogleFonts.sourceSansPro(
-        color: base.headline3!.color,
+      headlineLarge: GoogleFonts.sourceSansPro(
+        color: base.headlineLarge!.color,
         fontSize: 10,
       ),
-      headline2: GoogleFonts.sourceSansPro(
-        color: base.headline2!.color,
+      displaySmall: GoogleFonts.sourceSansPro(
+        color: base.displaySmall!.color,
         fontSize: 10,
       ),
-      headline1: GoogleFonts.sourceSansPro(
-        color: base.headline1!.color,
+      displayLarge: GoogleFonts.sourceSansPro(
+        color: base.displayLarge!.color,
         fontSize: 10,
       ),
-      headline5: GoogleFonts.sourceSansPro(
-        color: base.headline5!.color,
-        fontSize: 10,
-      ),
-      overline: GoogleFonts.sourceSansPro(
-        color: base.overline!.color,
+      // headlineMedium: GoogleFonts.sourceSansPro(
+      //   color: base.headlineMedium!.color,
+      //   fontSize: 10,
+      // ),
+      labelSmall: GoogleFonts.sourceSansPro(
+        color: base.labelSmall!.color,
         fontSize: 10,
       ),
     );
@@ -84,6 +84,8 @@ class AppTheme {
     final ColorScheme colorScheme = const ColorScheme.light().copyWith(
       primary: primaryColor,
       secondary: secondaryColor,
+      background: Colors.white,
+      error: Colors.red,
     );
 
     final ThemeData base = ThemeData.light();
@@ -98,8 +100,6 @@ class AppTheme {
       highlightColor: Colors.transparent,
       canvasColor: Colors.white,
       scaffoldBackgroundColor: Colors.white,
-      backgroundColor: Colors.white,
-      errorColor: Colors.red,
       textTheme: _buildTextTheme(base.textTheme),
       primaryTextTheme: _buildTextTheme(base.textTheme),
       platform: TargetPlatform.iOS,
@@ -117,6 +117,7 @@ class AppTheme {
     final ColorScheme colorScheme = const ColorScheme.light().copyWith(
       primary: primaryColor,
       secondary: secondaryColor,
+      background: Colors.black, // Mueve background aquí
     );
     final ThemeData base = ThemeData.dark();
     return base.copyWith(
@@ -130,12 +131,11 @@ class AppTheme {
       splashColor: Colors.white24,
       splashFactory: InkRipple.splashFactory,
       canvasColor: Colors.white,
-      backgroundColor: Colors.black,
       scaffoldBackgroundColor: Colors.black,
-      buttonTheme: ButtonThemeData(
-        colorScheme: colorScheme,
-        textTheme: ButtonTextTheme.primary,
-      ),
+      // labelLargeTheme: labelLargeThemeData(
+      //   colorScheme: colorScheme,
+      //   textTheme: labelLargeTextTheme.primary,
+      // ),
       textTheme: _buildTextTheme(base.textTheme),
       primaryTextTheme: _buildTextTheme(base.primaryTextTheme),
       platform: TargetPlatform.iOS,

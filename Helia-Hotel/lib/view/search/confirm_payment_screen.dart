@@ -29,12 +29,12 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
           },
           child: Icon(
             Icons.arrow_back,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         title: Text(
           "Payment",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
         ),
       ),
       body: Padding(
@@ -79,7 +79,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "Fecha inicio",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 fontSize: 16,
                                               ),
@@ -89,7 +89,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "Fecha final",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 fontSize: 16,
                                               ),
@@ -99,7 +99,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "Invitados",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 fontSize: 16,
                                               ),
@@ -117,7 +117,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "Junio 29, 2023",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(fontSize: 16),
                                         ),
                                         const SizedBox(height: 20),
@@ -125,7 +125,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "Junio 30, 2023",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(fontSize: 16),
                                         ),
                                         const SizedBox(height: 20),
@@ -133,7 +133,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "3",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(fontSize: 16),
                                         ),
                                         const SizedBox(height: 20),
@@ -176,7 +176,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "5 Noches",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 fontSize: 16,
                                               ),
@@ -186,7 +186,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "impuestos y pagos (10%)",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 fontSize: 16,
                                               ),
@@ -196,7 +196,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "Total",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption!
+                                              .bodySmall!
                                               .copyWith(
                                                 fontSize: 16,
                                               ),
@@ -214,7 +214,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "\$435.00",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(fontSize: 16),
                                         ),
                                         const SizedBox(height: 20),
@@ -222,7 +222,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "\$44.50",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(fontSize: 16),
                                         ),
                                         const SizedBox(height: 20),
@@ -230,7 +230,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           "\$479.50",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodyLarge!
                                               .copyWith(fontSize: 16),
                                         ),
                                         const SizedBox(height: 20),
@@ -279,7 +279,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                 "•••• •••• •••• •••• 4679",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       fontSize: 18,
                                     ),
@@ -289,7 +289,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                 "Cambiar",
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       fontSize: 16,
                                       color: HexColor(
@@ -307,7 +307,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                 ],
               ),
             ),
-            CustomButton(
+            CustomlabelLarge(
               text: "Confirmar pago",
               onTap: () {
                 Get.dialog(
@@ -315,7 +315,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                     backgroundColor: AppTheme.isLightTheme == true
                         ? Colors.white
                         : const Color(0xff1F222A),
-                    buttonPadding: EdgeInsets.zero,
+                    contentPadding: EdgeInsets.zero,
                     titlePadding: EdgeInsets.zero,
                     actionsPadding: EdgeInsets.zero,
                     insetPadding: const EdgeInsets.only(left: 30, right: 30),
@@ -346,7 +346,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                             "Pago Exitoso!",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w700,
@@ -357,14 +357,14 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                           Text(
                             "Pago realizado con éxito en\nhoteles Sucre",
                             style:
-                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       fontSize: 14,
                                       height: 1.6,
                                     ),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 20),
-                          CustomButton(
+                          CustomlabelLarge(
                             text: "Ver boleto",
                             onTap: () {
                               Get.to(
@@ -374,7 +374,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                             },
                           ),
                           const SizedBox(height: 12),
-                          CustomButton(
+                          CustomlabelLarge(
                             text: "Cancelar",
                             onTap: () {
                               Navigator.pop(context);
@@ -384,7 +384,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                     .withOpacity(0.1)
                                 : Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color!
                                     .withOpacity(0.1),
                             textColor: AppTheme.isLightTheme == true

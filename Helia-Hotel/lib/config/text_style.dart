@@ -25,45 +25,45 @@ class AppTheme {
       //   fontSize: 10,
       //   fontWeight: FontWeight.w500,
       // ),
-      titleMedium: GoogleFonts.sourceSansPro(
+      titleMedium: GoogleFonts.lato(
         color: base.titleMedium!.color,
         fontSize: 20,
       ),
-      titleSmall: GoogleFonts.sourceSansPro(
+      titleSmall: GoogleFonts.lato(
         color: base.titleSmall!.color,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
-      bodyMedium: GoogleFonts.sourceSansPro(
+      bodyMedium: GoogleFonts.lato(
         color: base.bodyMedium!.color,
         fontSize: 10,
       ),
-      bodyLarge: GoogleFonts.sourceSansPro(
+      bodyLarge: GoogleFonts.lato(
         color: base.bodyLarge!.color,
         fontSize: 10,
       ),
-      labelLarge: GoogleFonts.sourceSansPro(
+      labelLarge: GoogleFonts.lato(
         color: base.labelLarge!.color,
         fontSize: 10,
         fontWeight: FontWeight.w500,
       ),
-      bodySmall: GoogleFonts.sourceSansPro(
+      bodySmall: GoogleFonts.lato(
         color: base.bodySmall!.color,
         fontSize: 10,
       ),
-      headlineMedium: GoogleFonts.sourceSansPro(
+      headlineMedium: GoogleFonts.lato(
         color: base.headlineMedium!.color,
         fontSize: 10,
       ),
-      headlineLarge: GoogleFonts.sourceSansPro(
+      headlineLarge: GoogleFonts.lato(
         color: base.headlineLarge!.color,
         fontSize: 10,
       ),
-      displaySmall: GoogleFonts.sourceSansPro(
+      displaySmall: GoogleFonts.lato(
         color: base.displaySmall!.color,
         fontSize: 10,
       ),
-      displayLarge: GoogleFonts.sourceSansPro(
+      displayLarge: GoogleFonts.lato(
         color: base.displayLarge!.color,
         fontSize: 10,
       ),
@@ -71,7 +71,7 @@ class AppTheme {
       //   color: base.headlineMedium!.color,
       //   fontSize: 10,
       // ),
-      labelSmall: GoogleFonts.sourceSansPro(
+      labelSmall: GoogleFonts.lato(
         color: base.labelSmall!.color,
         fontSize: 10,
       ),
@@ -144,11 +144,11 @@ class AppTheme {
           BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0.5)),
       dialogBackgroundColor: Colors.black,
       dialogTheme: DialogTheme(
-          titleTextStyle: GoogleFonts.sourceSansPro(
+          titleTextStyle: GoogleFonts.lato(
             color: Colors.white,
             fontSize: 10,
           ),
-          contentTextStyle: GoogleFonts.sourceSansPro(
+          contentTextStyle: GoogleFonts.lato(
             color: Colors.white,
             fontSize: 10,
           ),

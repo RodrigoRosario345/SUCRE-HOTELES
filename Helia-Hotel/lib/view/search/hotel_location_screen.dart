@@ -1,18 +1,15 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:hotel/config/images.dart';
 import 'dart:async';
 import 'dart:typed_data';
-import 'package:flutter/material.dart';
 import 'package:hotel/utils/constans.dart';
 import 'package:hotel/utils/utils.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 
 class HotelLocationScreen extends StatefulWidget {
-  const HotelLocationScreen({Key? key}) : super(key: key);
+  const HotelLocationScreen({super.key});
 
   @override
   State<HotelLocationScreen> createState() => _HotelLocationScreenState();

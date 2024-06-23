@@ -15,7 +15,7 @@ import 'package:hotel/view/profile/security_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class ProfileView extends StatefulWidget {
-  const ProfileView({Key? key}) : super(key: key);
+  const ProfileView({super.key});
 
   @override
   State<ProfileView> createState() => _ProfileViewState();

@@ -9,7 +9,7 @@ import 'package:hotel/widget/card_view.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class RateBottomSheet extends StatelessWidget {
-  const RateBottomSheet({Key? key}) : super(key: key);
+  const RateBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {

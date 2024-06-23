@@ -8,7 +8,7 @@ import 'package:hotel/config/text_style.dart';
 import 'package:hotel/view/search/filter_view.dart';
 
 class RatingScreen extends StatefulWidget {
-  const RatingScreen({Key? key}) : super(key: key);
+  const RatingScreen({super.key});
 
   @override
   State<RatingScreen> createState() => _RatingScreenState();

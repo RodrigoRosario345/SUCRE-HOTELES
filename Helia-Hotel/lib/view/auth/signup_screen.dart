@@ -6,14 +6,13 @@ import 'package:get/get.dart';
 import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
 import 'package:hotel/controller/auth_controller.dart';
-import 'package:hotel/view/auth/fill_profile_screen.dart';
 import 'package:hotel/view/auth/login_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:hotel/widget/custom_textfield.dart';
 import 'package:hotel/service/http_Service.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({super.key});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();

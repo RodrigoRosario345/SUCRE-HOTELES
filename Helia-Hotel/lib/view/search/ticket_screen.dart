@@ -6,7 +6,7 @@ import 'package:hotel/config/text_style.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class TicketScreen extends StatefulWidget {
-  const TicketScreen({Key? key}) : super(key: key);
+  const TicketScreen({super.key});
 
   @override
   State<TicketScreen> createState() => _TicketScreenState();

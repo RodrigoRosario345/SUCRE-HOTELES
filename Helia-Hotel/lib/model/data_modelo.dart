@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'dart:convert';
-import 'dart:ffi';
 import 'dart:core';
 
 DataModel dataModelFromJson(String str) => DataModel.fromJson(json.decode(str));

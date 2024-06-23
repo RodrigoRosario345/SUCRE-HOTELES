@@ -16,7 +16,7 @@ import 'package:hotel/widget/custom_container.dart';
 import 'package:readmore/readmore.dart';
 
 class HotelDetailScreen extends StatefulWidget {
-  const HotelDetailScreen({Key? key}) : super(key: key);
+  const HotelDetailScreen({super.key});
 
   @override
   State<HotelDetailScreen> createState() => _HotelDetailScreenState();

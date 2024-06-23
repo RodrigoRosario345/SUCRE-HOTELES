@@ -9,7 +9,7 @@ import 'package:hotel/controller/home_controller.dart';
 import 'package:hotel/view/home/bookmark_view.dart';
 
 class RecentlyBookScreen extends StatefulWidget {
-  const RecentlyBookScreen({Key? key}) : super(key: key);
+  const RecentlyBookScreen({super.key});
 
   @override
   State<RecentlyBookScreen> createState() => _RecentlyBookScreenState();

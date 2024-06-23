@@ -8,7 +8,7 @@ import 'package:hotel/view/document/cancel_booking_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class OnGoingView extends StatefulWidget {
-  const OnGoingView({Key? key}) : super(key: key);
+  const OnGoingView({super.key});
 
   @override
   State<OnGoingView> createState() => _OnGoingViewState();

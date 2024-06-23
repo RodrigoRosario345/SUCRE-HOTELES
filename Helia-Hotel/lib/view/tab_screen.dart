@@ -12,7 +12,7 @@ import 'package:hotel/view/profile/profile_view.dart';
 import 'package:hotel/view/search/search_view.dart';
 
 class TabScreen extends StatefulWidget {
-  const TabScreen({Key? key}) : super(key: key);
+  const TabScreen({super.key});
 
   @override
   State<TabScreen> createState() => _TabScreenState();

@@ -9,7 +9,7 @@ import 'package:hotel/view/search/search_view.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class FilterView extends StatelessWidget {
-  const FilterView({Key? key}) : super(key: key);
+  const FilterView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ import 'package:hotel/view/onboarding/option_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({Key? key}) : super(key: key);
+  const OnBoardingScreen({super.key});
 
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();

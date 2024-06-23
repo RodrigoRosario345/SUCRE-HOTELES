@@ -10,7 +10,7 @@ import 'package:hotel/view/search/confirm_payment_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class PaymentScreen extends StatefulWidget {
-  const PaymentScreen({Key? key}) : super(key: key);
+  const PaymentScreen({super.key});
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();

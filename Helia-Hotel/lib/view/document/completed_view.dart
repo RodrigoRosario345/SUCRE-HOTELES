@@ -6,7 +6,7 @@ import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
 
 class CompletedView extends StatefulWidget {
-  const CompletedView({Key? key}) : super(key: key);
+  const CompletedView({super.key});
 
   @override
   State<CompletedView> createState() => _CompletedViewState();

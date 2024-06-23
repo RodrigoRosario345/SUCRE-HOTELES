@@ -30,18 +30,6 @@ class AuthController extends GetxController {
     }
   }
 
-  // Future<bool> signUpWithEmailAndPassword(String email, String password) async {
-  //   try {
-  //     await _auth.createUserWithEmailAndPassword(
-  //         email: email, password: password);
-  //     return true;
-  //   } on FirebaseAuthException catch (e) {
-  //     // Maneja los errores aquí
-  //     print(e.message);
-  //     return false;
-  //   }
-  // }
-
   Future<bool> signUpWithEmailAndPassword(String email, String password,
       String nombre, String apellidos, String celular) async {
     try {

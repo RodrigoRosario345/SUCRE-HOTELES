@@ -1,8 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'dart:math';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -14,10 +12,9 @@ import 'package:hotel/view/home/recently_book_screen.dart';
 import 'package:hotel/view/search/hotel_detail_screen.dart';
 import 'package:hotel/view/search/search_view.dart';
 import 'package:hotel/widget/custom_textfield.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:hotel/model/data_modelo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:hotel/controller/auth_controller.dart';
 
 class HomeView extends StatefulWidget {
@@ -58,26 +55,34 @@ class _HomeViewState extends State<HomeView> {
 
   _getData() async {
     try {
-      String url = "http://192.168.100.45:5001/hoteles";
-      http.Response res = await http.get(Uri.parse(url));
-      if (res.statusCode == 200) {
-        Map<String, dynamic> jsonResponse = json.decode(res.body);
-        List<dynamic> hotelesData = jsonResponse['hoteles'];
+      final DatabaseReference ref = FirebaseDatabase.instance.ref('hoteles');
+      DatabaseEvent event = await ref.once();
+      DataSnapshot snapshot = event.snapshot;
+
+      if (snapshot.value != null) {
+        Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
+        List<Hotel> hoteles =
+            values.entries.map((entry) => Hotel.fromJson(entry.value)).toList();
 
         final random = Random();
-        hotelesData.shuffle(
-            random); // Ordena aleatoriamente los hoteles en cada llamada
+        hoteles.shuffle(
+            random); // Mezclar la lista de hoteles obtenida por Firebase
 
-        List<Hotel> hoteles =
-            hotelesData.map((data) => Hotel.fromJson(data)).toList();
-        // print(hoteles);
         setState(() {
           _hoteles = hoteles;
           _isLoading = false;
         });
+      } else {
+        print('No data available.');
+        setState(() {
+          _isLoading = false;
+        });
       }
     } catch (e) {
-      debugPrint(e.toString());
+      print('Error: $e');
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -284,9 +289,8 @@ class _HomeViewState extends State<HomeView> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(34),
                                         image: DecorationImage(
-                                          image: NetworkImage(
-                                            _hoteles[index].imagen_num_uno,
-                                          ),
+                                          image: NetworkImage(_hoteles[index]
+                                              .imagenes['imagen1']!),
                                           fit: BoxFit.fill,
                                         ),
                                       ),
@@ -507,8 +511,8 @@ class _HomeViewState extends State<HomeView> {
                                               ),
                                               image: DecorationImage(
                                                   image: NetworkImage(
-                                                      _hoteles[index]
-                                                          .imagen_num_uno),
+                                                      _hoteles[index].imagenes[
+                                                          'imagen1']!),
                                                   fit: BoxFit.fill),
                                             )),
                                         const SizedBox(width: 10),

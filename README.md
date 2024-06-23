@@ -1,6 +1,6 @@
 # SUCRE-HOTELES 
 
-## Pasos de Funcionamiento:
+### Pasos de Funcionamiento:
 
 <ol>
   <li>abrir la rama master primero</li>

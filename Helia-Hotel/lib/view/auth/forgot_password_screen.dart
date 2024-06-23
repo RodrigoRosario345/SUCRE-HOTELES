@@ -80,7 +80,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         () => card(
                           DefaultImages.chat,
                           "via SMS:",
-                          "+1 111 ******99",
+                          "+591 73******99",
                           () {
                             authController.isPassword.value = false;
                           },

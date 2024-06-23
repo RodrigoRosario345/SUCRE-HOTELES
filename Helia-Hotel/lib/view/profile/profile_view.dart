@@ -8,11 +8,13 @@ import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
 import 'package:hotel/controller/profile_controller.dart';
 import 'package:hotel/main.dart';
-import 'package:hotel/view/onboarding/welcome_screen.dart';
+import 'package:hotel/controller/auth_controller.dart';
+import 'package:hotel/view/auth/login_screen.dart';
 import 'package:hotel/view/profile/edit_profile_scren.dart';
 import 'package:hotel/view/profile/notification_screen.dart';
 import 'package:hotel/view/profile/security_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -22,9 +24,34 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
+  final AuthController authController = Get.find<AuthController>();
   final profileController = Get.put(ProfileController());
   int light = 1;
   int dark = 2;
+  String? nombre;
+  String? apellidos;
+  String? email;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeUserData();
+  }
+
+  _initializeUserData() async {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final userInfo = await authController.getUserInfo(userId);
+      if (userInfo != null) {
+        setState(() {
+          nombre = userInfo['nombre'];
+          apellidos = userInfo['apellidos'];
+          email = userInfo['email'];
+        });
+      }
+    }
+  }
+
   changeColor(int color) {
     if (color == light) {
       MyApp.setCustomeTheme(context, 6);
@@ -105,7 +132,7 @@ class _ProfileViewState extends State<ProfileView> {
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      "Rodrigo Rosario",
+                      "${nombre ?? 'Cargando...'} ${apellidos ?? ''}",
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -113,7 +140,7 @@ class _ProfileViewState extends State<ProfileView> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      "rodrigorosario@gmail.com",
+                      email ?? '',
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14,
                           ),
@@ -177,7 +204,7 @@ class _ProfileViewState extends State<ProfileView> {
                       () {
                         Get.bottomSheet(
                           Container(
-                            height: 300,
+                            height: 320,
                             width: Get.width,
                             decoration: BoxDecoration(
                               color: AppTheme.isLightTheme == true
@@ -223,15 +250,18 @@ class _ProfileViewState extends State<ProfileView> {
                                   const SizedBox(height: 30),
                                   CustomlabelLarge(
                                     text: "Sí, cerrar sesión",
-                                    onTap: () {
-                                      Get.offAll(
-                                        const WelcomeScreen(),
-                                        transition: Transition.rightToLeft,
-                                      );
-                                      // Get.offAll(
-                                      //   const LoginScreen(),
-                                      //   transition: Transition.rightToLeft,
-                                      // );
+                                    onTap: () async {
+                                      try {
+                                        await authController.signOut();
+                                        Get.offAll(
+                                          () => const LoginScreen(),
+                                          transition: Transition.rightToLeft,
+                                        );
+                                      } catch (e) {
+                                        print("Error al cerrar sesión: $e");
+                                        Get.snackbar('Error',
+                                            'No se pudo cerrar sesión. Intente nuevamente.');
+                                      }
                                     },
                                   ),
                                   const SizedBox(height: 15),

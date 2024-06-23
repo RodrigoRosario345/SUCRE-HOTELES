@@ -8,8 +8,15 @@ import 'package:get/get.dart';
 import 'package:hotel/controller/auth_controller.dart';
 import 'package:hotel/config/text_style.dart';
 import 'package:hotel/view/splash/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   EasyLoading.instance
     ..successWidget = Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +56,7 @@ void main() async {
     ..dismissOnTap = false;
 
   Get.put(AuthController());
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,

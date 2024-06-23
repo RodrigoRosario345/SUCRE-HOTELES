@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "678980183414",
+    "project_id": "hoteles-sucre",
+    "storage_bucket": "hoteles-sucre.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678980183414:android:150b12b4da2158654b0657",
+        "android_client_info": {
+          "package_name": "com.hotel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Lw0YfPu_F7MHP3CGJXUUm7bLXxtq-bY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

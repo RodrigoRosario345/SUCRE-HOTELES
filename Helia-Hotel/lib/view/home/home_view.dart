@@ -2,6 +2,7 @@
 
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -16,6 +17,8 @@ import 'package:hotel/widget/custom_textfield.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:hotel/model/data_modelo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hotel/controller/auth_controller.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -26,6 +29,9 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final homeController = Get.put(HomeController());
+  final AuthController authController = Get.find<AuthController>();
+  String? nombre;
+  String? apellidos;
 
   bool _isLoading = true;
   List<Hotel> _hoteles = [];
@@ -33,7 +39,21 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
+    _initializeUserData();
     _getData();
+  }
+
+  _initializeUserData() async {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final userInfo = await authController.getUserInfo(userId);
+      if (userInfo != null) {
+        setState(() {
+          nombre = userInfo['nombre'];
+          apellidos = userInfo['apellidos'];
+        });
+      }
+    }
   }
 
   _getData() async {
@@ -50,7 +70,7 @@ class _HomeViewState extends State<HomeView> {
 
         List<Hotel> hoteles =
             hotelesData.map((data) => Hotel.fromJson(data)).toList();
-        print(hoteles);
+        // print(hoteles);
         setState(() {
           _hoteles = hoteles;
           _isLoading = false;
@@ -63,6 +83,16 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: _isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : _buildContent(), // Método que construye el contenido principal
+    );
+  }
+
+  Widget _buildContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -143,7 +173,7 @@ class _HomeViewState extends State<HomeView> {
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Text(
-                      "Hola, Rodrigo Rosario",
+                      'Hola, ${nombre ?? 'Cargando...'} ${apellidos ?? ''}',
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 25,
                             fontWeight: FontWeight.w700,
@@ -608,6 +638,13 @@ class _HomeViewState extends State<HomeView> {
       ],
     );
   }
+
+  // @override
+  // void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  //   super.debugFillProperties(properties);
+  //   properties
+  //       .add(DiagnosticsProperty<Map<String, dynamic>?>('userInfo', userInfo));
+  // }
 }
 
 class CustomSearchDelegate extends SearchDelegate {

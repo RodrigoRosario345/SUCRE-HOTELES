@@ -9,7 +9,6 @@ import 'package:hotel/controller/auth_controller.dart';
 import 'package:hotel/view/auth/login_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:hotel/widget/custom_textfield.dart';
-import 'package:hotel/service/http_Service.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -20,7 +19,9 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final authController = Get.put(AuthController());
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController userFirstNameController = TextEditingController();
+  final TextEditingController userLastNameController = TextEditingController();
+  final TextEditingController celularController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
@@ -50,19 +51,19 @@ class _SignupScreenState extends State<SignupScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Crear una cuenta nueva",
+                  "Registrarse",
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        fontSize: 32,
+                        fontSize: 42,
                         fontWeight: FontWeight.w700,
                       ),
                 ),
-                const SizedBox(height: 15),
+                const SizedBox(height: 10),
                 CustomTextField(
-                  hintText: "Nombre usuario",
-                  textFieldController: usernameController,
+                  hintText: "Nombre",
+                  textFieldController: userFirstNameController,
                   prefix: const Padding(
                     padding: EdgeInsets.all(14.0),
                     child: Icon(
@@ -73,6 +74,47 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   sufix: const SizedBox(),
                   onChanged: (value) {},
+                  suffix: const InkWell(),
+                ),
+                const SizedBox(height: 10),
+                CustomTextField(
+                  hintText: "Apellidos",
+                  textFieldController: userLastNameController,
+                  prefix: const Padding(
+                    padding: EdgeInsets.all(14.0),
+                    child: Icon(
+                      Icons.person,
+                      color: Color.fromARGB(255, 165, 154, 154),
+                      size: 22,
+                    ),
+                  ),
+                  sufix: const SizedBox(),
+                  onChanged: (value) {},
+                  suffix: const InkWell(),
+                ),
+                const SizedBox(height: 10),
+                CustomTextField(
+                  hintText: "Celular",
+                  textFieldController: celularController,
+                  prefix: const Padding(
+                    padding: EdgeInsets.all(14.0),
+                    child: Icon(
+                      Icons.phone,
+                      color: Color.fromARGB(255, 165, 154, 154),
+                      size: 22,
+                    ),
+                  ),
+                  sufix: const SizedBox(),
+                  onChanged: (value) {
+                    // Additional validation can be added here
+                    if (value.isEmpty) {
+                      print('Input is empty');
+                    } else if (int.tryParse(value) == null) {
+                      print('Input is not a valid number');
+                    } else {
+                      print('Input is a valid number');
+                    }
+                  },
                   suffix: const InkWell(),
                 ),
                 const SizedBox(height: 10),
@@ -172,31 +214,20 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomlabelLarge(
                   text: "Crear cuenta",
                   onTap: () async {
-                    String username = usernameController.text;
-                    String email = emailController.text;
+                    String userEmail = emailController.text;
                     String password = passwordController.text;
-                    String confirmPassword = confirmPasswordController.text;
+                    String nombre = userFirstNameController.text;
+                    String apellidos = userLastNameController.text;
+                    String celular = celularController.text;
 
-                    if (password == confirmPassword) {
-                      await HttpService.register(
-                          username, email, password, context);
+                    bool success =
+                        await authController.signUpWithEmailAndPassword(
+                            userEmail, password, nombre, apellidos, celular);
+
+                    if (success) {
+                      Get.to(() => const LoginScreen());
                     } else {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text("Error"),
-                            content:
-                                const Text("Las contraseñas no coinciden."),
-                            actions: [
-                              TextButton(
-                                onPressed: () => Navigator.pop(context),
-                                child: const Text("Aceptar"),
-                              ),
-                            ],
-                          );
-                        },
-                      );
+                      Get.snackbar('Error', 'Registro fallido');
                     }
                   },
                 ),

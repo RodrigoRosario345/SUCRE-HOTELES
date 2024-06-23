@@ -10,7 +10,8 @@ import 'package:hotel/view/auth/forgot_password_screen.dart';
 import 'package:hotel/view/auth/signup_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:hotel/widget/custom_textfield.dart';
-import '../../service/http_Service.dart';
+import 'package:hotel/view/tab_screen.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -21,9 +22,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final authController = Get.put(AuthController());
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  late String username;
+  late String userEmail;
   late String password;
 
   @override
@@ -50,31 +51,29 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Inicia sesión\ncon tu cuenta",
+                  "Inicia sesión",
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        fontSize: 48,
+                        fontSize: 42,
                         fontWeight: FontWeight.w700,
                       ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 50),
                 CustomTextField(
-                  hintText: "Nombre de usuario",
-                  textFieldController: usernameController,
-                  prefix: const Padding(
-                    padding: EdgeInsets.all(14.0),
-                    child: Icon(
-                      Icons.person,
-                      color: Color.fromARGB(255, 165, 154, 154),
-                      size: 22,
+                  hintText: "Correo electrónico",
+                  textFieldController: emailController,
+                  prefix: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: SvgPicture.asset(
+                      DefaultImages.email,
                     ),
                   ),
                   sufix: const SizedBox(),
                   onChanged: (value) {
                     setState(() {
-                      username = value;
+                      userEmail = value;
                     });
                   },
                   suffix: const InkWell(),
@@ -148,9 +147,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomlabelLarge(
                   text: "Iniciar sesión",
                   onTap: () async {
-                    String username = usernameController.text;
-                    String password = passwordController.text;
-                    await HttpService.login(username, password, context);
+                    EasyLoading.show(status: 'Iniciando sesión...');
+                    try {
+                      String userEmail = emailController.text;
+                      String password = passwordController.text;
+                      bool success = await authController
+                          .signInWithEmailAndPassword(userEmail, password);
+                      EasyLoading.dismiss();
+                      if (success) {
+                        Get.to(() => const TabScreen());
+                      } else {
+                        Get.snackbar('Error', 'Inicio de sesión fallido');
+                      }
+                    } catch (e) {
+                      EasyLoading.dismiss();
+                      Get.snackbar('Error', 'Ocurrió un error inesperado');
+                    }
                   },
                 ),
                 const SizedBox(height: 25),

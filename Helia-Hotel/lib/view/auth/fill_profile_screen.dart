@@ -9,7 +9,7 @@ import 'package:hotel/widget/custom_container.dart';
 import 'package:hotel/widget/custom_textfield.dart';
 
 class FillProfileScreen extends StatefulWidget {
-  const FillProfileScreen({Key? key}) : super(key: key);
+  const FillProfileScreen({super.key});
 
   @override
   State<FillProfileScreen> createState() => _FillProfileScreenState();

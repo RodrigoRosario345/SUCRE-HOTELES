@@ -6,7 +6,7 @@ import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
 
 class CardView extends StatelessWidget {
-  const CardView({Key? key}) : super(key: key);
+  const CardView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class CardView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    "\ 360BOL",
+                    " 360BOL",
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 18,
                           color: HexColor(AppTheme.primaryColorString!),

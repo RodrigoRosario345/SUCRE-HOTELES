@@ -8,13 +8,12 @@ import 'package:hotel/config/text_style.dart';
 import 'package:hotel/controller/auth_controller.dart';
 import 'package:hotel/view/auth/forgot_password_screen.dart';
 import 'package:hotel/view/auth/signup_screen.dart';
-import 'package:hotel/view/tab_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:hotel/widget/custom_textfield.dart';
 import '../../service/http_Service.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();

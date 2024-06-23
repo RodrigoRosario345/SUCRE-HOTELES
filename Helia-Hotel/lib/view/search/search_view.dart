@@ -16,7 +16,7 @@ class SearchController extends GetxController {
 }
 
 class SearchView extends StatefulWidget {
-  const SearchView({Key? key}) : super(key: key);
+  const SearchView({super.key});
 
   @override
   State<SearchView> createState() => _SearchViewState();
@@ -512,11 +512,11 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HotelDetailScreen(),
+                builder: (context) => const HotelDetailScreen(),
               ),
             );
           },
-          title: Text(result, style: TextStyle(fontSize: 18)),
+          title: Text(result, style: const TextStyle(fontSize: 18)),
         );
       },
     );
@@ -540,11 +540,11 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HotelDetailScreen(),
+                builder: (context) => const HotelDetailScreen(),
               ),
             );
           },
-          title: Text(result, style: TextStyle(fontSize: 18)),
+          title: Text(result, style: const TextStyle(fontSize: 18)),
         );
       },
     );

@@ -7,7 +7,7 @@ import 'package:hotel/widget/custom_container.dart';
 import 'package:hotel/widget/custom_textfield.dart';
 
 class AddNewCardScreen extends StatefulWidget {
-  const AddNewCardScreen({Key? key}) : super(key: key);
+  const AddNewCardScreen({super.key});
 
   @override
   State<AddNewCardScreen> createState() => _AddNewCardScreenState();

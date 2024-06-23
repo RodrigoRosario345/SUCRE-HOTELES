@@ -7,7 +7,7 @@ import 'package:hotel/config/text_style.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class CancelBookingScreen extends StatefulWidget {
-  const CancelBookingScreen({Key? key}) : super(key: key);
+  const CancelBookingScreen({super.key});
 
   @override
   State<CancelBookingScreen> createState() => _CancelBookingScreenState();
@@ -91,14 +91,14 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Pagado: \ 479.5BOL   ",
+                  "Pagado:  479.5BOL   ",
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 18,
                         color: const Color(0xff424242),
                       ),
                 ),
                 Text(
-                  "Reembolso: \ 383.8BOL",
+                  "Reembolso:  383.8BOL",
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 18,
                         color: const Color(0xff424242),

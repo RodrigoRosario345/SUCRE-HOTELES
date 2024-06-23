@@ -8,7 +8,7 @@ import 'package:hotel/widget/custom_container.dart';
 import 'package:pinput/pinput.dart';
 
 class OTPScreen extends StatefulWidget {
-  const OTPScreen({Key? key}) : super(key: key);
+  const OTPScreen({super.key});
 
   @override
   State<OTPScreen> createState() => _OTPScreenState();

@@ -11,7 +11,7 @@ import 'package:hotel/view/document/completed_view.dart';
 import 'package:hotel/view/document/ongoing_view.dart';
 
 class DocumentView extends StatefulWidget {
-  const DocumentView({Key? key}) : super(key: key);
+  const DocumentView({super.key});
 
   @override
   State<DocumentView> createState() => _DocumentViewState();

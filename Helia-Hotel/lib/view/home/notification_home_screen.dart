@@ -7,7 +7,7 @@ import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
 
 class HomeNotificationScreen extends StatefulWidget {
-  const HomeNotificationScreen({Key? key}) : super(key: key);
+  const HomeNotificationScreen({super.key});
 
   @override
   State<HomeNotificationScreen> createState() => _HomeNotificationScreenState();

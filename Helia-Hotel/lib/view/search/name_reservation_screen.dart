@@ -11,7 +11,7 @@ import 'package:hotel/widget/custom_container.dart';
 import 'package:hotel/widget/custom_textfield.dart';
 
 class NameReservationScreen extends StatefulWidget {
-  const NameReservationScreen({Key? key}) : super(key: key);
+  const NameReservationScreen({super.key});
 
   @override
   State<NameReservationScreen> createState() => _NameReservationScreenState();
@@ -120,8 +120,8 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
                         textFieldController:
                             TextEditingController(text: "+591 77382944"),
                         sufix: const SizedBox(),
-                        prefix: Padding(
-                          padding: const EdgeInsets.all(14.0),
+                        prefix: const Padding(
+                          padding: EdgeInsets.all(14.0),
                           // child: SvgPicture.asset(
                           //   DefaultImages.p2,
                           // ),

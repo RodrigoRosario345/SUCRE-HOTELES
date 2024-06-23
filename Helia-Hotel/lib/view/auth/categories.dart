@@ -4,7 +4,7 @@ import 'card_model.dart';
 import 'package:hotel/view/tab_screen.dart';
 
 class MultipleSelectionGrid extends StatefulWidget {
-  const MultipleSelectionGrid({Key? key}) : super(key: key);
+  const MultipleSelectionGrid({super.key});
 
   @override
   // ignore: library_private_types_in_public_api

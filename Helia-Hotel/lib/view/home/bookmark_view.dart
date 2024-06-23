@@ -9,7 +9,7 @@ import 'package:hotel/config/text_style.dart';
 import 'package:hotel/view/home/remove_dialog.dart';
 
 class BookMarkView extends StatelessWidget {
-  const BookMarkView({Key? key}) : super(key: key);
+  const BookMarkView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ import 'package:hotel/config/text_style.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class RemoveDialog extends StatelessWidget {
-  const RemoveDialog({Key? key}) : super(key: key);
+  const RemoveDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

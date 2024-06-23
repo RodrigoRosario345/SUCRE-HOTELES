@@ -9,7 +9,7 @@ import 'package:hotel/view/profile/notification_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class SecurityScreen extends StatefulWidget {
-  const SecurityScreen({Key? key}) : super(key: key);
+  const SecurityScreen({super.key});
 
   @override
   State<SecurityScreen> createState() => _SecurityScreenState();

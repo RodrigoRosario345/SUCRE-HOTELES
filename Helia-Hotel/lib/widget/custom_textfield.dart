@@ -10,14 +10,13 @@ class CustomTextField extends StatelessWidget {
   final Widget prefix;
   final Widget sufix;
   const CustomTextField(
-      {Key? key,
+      {super.key,
       required this.hintText,
       required this.textFieldController,
       required this.prefix,
       required this.sufix,
       required Null Function(dynamic value) onChanged,
-      required InkWell suffix})
-      : super(key: key);
+      required InkWell suffix});
 
   @override
   Widget build(BuildContext context) {
@@ -66,11 +65,10 @@ class CustomField extends StatelessWidget {
 
   final Widget sufix;
   const CustomField(
-      {Key? key,
+      {super.key,
       required this.hintText,
       required this.textFieldController,
-      required this.sufix})
-      : super(key: key);
+      required this.sufix});
 
   @override
   Widget build(BuildContext context) {

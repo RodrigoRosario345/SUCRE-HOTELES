@@ -9,7 +9,7 @@ import 'package:hotel/view/auth/signup_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class OptionScreen extends StatefulWidget {
-  const OptionScreen({Key? key}) : super(key: key);
+  const OptionScreen({super.key});
 
   @override
   State<OptionScreen> createState() => _OptionScreenState();

@@ -6,7 +6,7 @@ import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
 
 class CanceledView extends StatefulWidget {
-  const CanceledView({Key? key}) : super(key: key);
+  const CanceledView({super.key});
 
   @override
   State<CanceledView> createState() => _CanceledViewState();

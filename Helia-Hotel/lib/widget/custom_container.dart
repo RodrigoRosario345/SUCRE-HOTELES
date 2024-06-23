@@ -10,12 +10,11 @@ class CustomlabelLarge extends StatelessWidget {
   final Color? textColor;
   final VoidCallback onTap;
   const CustomlabelLarge(
-      {Key? key,
+      {super.key,
       required this.text,
       this.bgColor,
       this.textColor,
-      required this.onTap})
-      : super(key: key);
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {

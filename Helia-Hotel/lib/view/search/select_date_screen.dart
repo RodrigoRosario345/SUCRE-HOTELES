@@ -10,7 +10,7 @@ import 'package:hotel/widget/custom_container.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class SelectDateScreen extends StatefulWidget {
-  const SelectDateScreen({Key? key}) : super(key: key);
+  const SelectDateScreen({super.key});
 
   @override
   State<SelectDateScreen> createState() => _SelectDateScreenState();

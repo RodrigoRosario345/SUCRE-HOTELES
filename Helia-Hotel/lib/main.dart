@@ -5,7 +5,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:hotel/controller/auth_controller.dart';
 import 'package:hotel/config/text_style.dart';
 import 'package:hotel/view/splash/splash_screen.dart';
@@ -42,7 +41,8 @@ void main() async {
     ..indicatorSize = 45.0
     ..radius = 10.0
     ..indicatorColor = Colors.green
-    ..backgroundColor = Color.fromARGB(255, 158, 154, 154).withOpacity(0.6)
+    ..backgroundColor =
+        const Color.fromARGB(255, 158, 154, 154).withOpacity(0.6)
     ..textColor = Colors.white
     ..maskColor = Colors.blue.withOpacity(0.5)
     ..userInteractions = false
@@ -68,7 +68,7 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   static setCustomeTheme(BuildContext context, int index) async {
     final _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();

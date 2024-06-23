@@ -10,7 +10,7 @@ import 'package:hotel/view/auth/otp_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({Key? key}) : super(key: key);
+  const ForgotPasswordScreen({super.key});
 
   @override
   State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();

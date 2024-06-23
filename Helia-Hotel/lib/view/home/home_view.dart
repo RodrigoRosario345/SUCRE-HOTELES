@@ -18,7 +18,7 @@ import 'dart:convert';
 import 'package:hotel/model/data_modelo.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -694,11 +694,11 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HotelDetailScreen(),
+                builder: (context) => const HotelDetailScreen(),
               ),
             );
           },
-          title: Text(result, style: TextStyle(fontSize: 18)),
+          title: Text(result, style: const TextStyle(fontSize: 18)),
         );
       },
     );
@@ -707,10 +707,10 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildSearchField(BuildContext context) {
     return TextField(
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 18, // Tamaño de fuente para el texto ingresado
       ),
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Search",
         border: InputBorder.none,
         hintStyle: TextStyle(

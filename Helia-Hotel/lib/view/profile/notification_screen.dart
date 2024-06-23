@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:hotel/controller/profile_controller.dart';
 
 class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
+  const NotificationScreen({super.key});
 
   @override
   State<NotificationScreen> createState() => _NotificationScreenState();

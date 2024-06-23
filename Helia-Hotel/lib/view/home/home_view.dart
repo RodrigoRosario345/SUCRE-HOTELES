@@ -245,7 +245,7 @@ class _HomeViewState extends State<HomeView> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                HotelDetailScreen(),
+                                                const HotelDetailScreen(),
                                           ));
                                     },
                                     child: Container(

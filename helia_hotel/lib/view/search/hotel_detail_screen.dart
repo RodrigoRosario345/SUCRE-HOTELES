@@ -67,12 +67,12 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
             flexibleSpace: Container(
               height: 300,
               width: Get.width,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/Capital_Plaza_Hotel3.jpg"),
-                  fit: BoxFit.fill,
-                ),
-              ),
+              // decoration: const BoxDecoration(
+              //   image: DecorationImage(
+              //     image: AssetImage("assets/images/Capital_Plaza_Hotel3.jpg"),
+              //     fit: BoxFit.fill,
+              //   ),
+              // ),
               child: Swiper(
                 pagination: const SwiperPagination(),
                 itemBuilder: (BuildContext context, int index) {
@@ -301,20 +301,24 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                               .descripcion, // Aquí se pasa directamente la descripción como String
                           style: Theme.of(context)
                               .textTheme
-                              .bodySmall!
-                              .copyWith(fontSize: 16),
+                              .bodyMedium!
+                              .copyWith(),
+                          textAlign: TextAlign.justify,
                           trimLines: 4,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: '...Ver más',
-                          moreStyle:
-                              Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    fontSize:
-                                        16, // Ajusta también el tamaño de la fuente para "...Ver más"
-                                    fontFamily: Theme.of(context).platform ==
-                                            TargetPlatform.iOS
-                                        ? 'San Francisco'
-                                        : 'Helvetica', // Fuente similar a Apple para "...Ver más"
-                                  ),
+                          moreStyle: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(
+                                fontSize: // Ajusta también el tamaño de la fuente para "...Ver más"
+                                    13,
+                                color: HexColor(AppTheme.primaryColorString!),
+                                fontFamily: Theme.of(context).platform ==
+                                        TargetPlatform.iOS
+                                    ? 'San Francisco'
+                                    : 'Helvetica', // Fuente similar a Apple para "...Ver más"
+                              ),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -627,7 +631,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                 child: Row(
                   children: [
                     Text(
-                      "${widget.hotel.precio.toString()}BOL",
+                      "${widget.hotel.precio}BOL",
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: HexColor(AppTheme.primaryColorString!),
                             fontSize: 32,
@@ -643,6 +647,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                     ),
                     const SizedBox(width: 20),
                     Expanded(
+                      flex: 2,
                       child: CustomlabelLarge(
                         text: "Reservar ahora",
                         onTap: () {

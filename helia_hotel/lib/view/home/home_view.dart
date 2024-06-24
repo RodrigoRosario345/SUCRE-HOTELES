@@ -399,7 +399,6 @@ class _HomeViewState extends State<HomeView> {
                                                           .textTheme
                                                           .bodyLarge!
                                                           .copyWith(
-                                                            fontSize: 16,
                                                             color: Colors.white,
                                                           ),
                                                     ),
@@ -409,7 +408,7 @@ class _HomeViewState extends State<HomeView> {
                                                           .textTheme
                                                           .bodyLarge!
                                                           .copyWith(
-                                                            fontSize: 14,
+                                                            fontSize: 10,
                                                             color: Colors.white,
                                                           ),
                                                     ),
@@ -518,7 +517,7 @@ class _HomeViewState extends State<HomeView> {
                                       child: Row(
                                         children: [
                                           Container(
-                                              height: 100,
+                                              height: 110,
                                               width: 100,
                                               decoration: BoxDecoration(
                                                 borderRadius:
@@ -534,12 +533,10 @@ class _HomeViewState extends State<HomeView> {
                                               )),
                                           const SizedBox(width: 10),
                                           Expanded(
-                                            flex: 4,
+                                            flex: 3,
                                             child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.stretch,
                                               children: [
                                                 Text(
                                                   _hoteles[index].nombre,
@@ -552,7 +549,7 @@ class _HomeViewState extends State<HomeView> {
                                                             FontWeight.w700,
                                                       ),
                                                 ),
-                                                const SizedBox(height: 15),
+                                                const SizedBox(height: 12),
                                                 Text(
                                                   _hoteles[index]
                                                       .lugar, //Sucre, Bolivia
@@ -565,7 +562,7 @@ class _HomeViewState extends State<HomeView> {
                                                             0xff757575),
                                                       ),
                                                 ),
-                                                const SizedBox(height: 15),
+                                                const SizedBox(height: 12),
                                                 Row(
                                                   children: [
                                                     const Icon(
@@ -584,8 +581,14 @@ class _HomeViewState extends State<HomeView> {
                                                                 .primaryColorString!),
                                                           ),
                                                     ),
+                                                    const Icon(
+                                                      // icon eye - ver
+                                                      Icons.remove_red_eye,
+                                                      color: Color(0xff757575),
+                                                      size: 15,
+                                                    ),
                                                     Text(
-                                                      "120",
+                                                      " 1",
                                                       style: Theme.of(context)
                                                           .textTheme
                                                           .bodyLarge!
@@ -611,10 +614,11 @@ class _HomeViewState extends State<HomeView> {
                                                       .textTheme
                                                       .bodyLarge!
                                                       .copyWith(
-                                                        fontSize: 15,
+                                                        fontSize: 12,
                                                         color: HexColor(AppTheme
                                                             .primaryColorString!),
                                                       ),
+                                                  textAlign: TextAlign.end,
                                                 ),
                                                 const SizedBox(height: 8),
                                                 Text(

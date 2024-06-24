@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
@@ -36,7 +37,7 @@ class AppTheme {
       ),
       bodyMedium: GoogleFonts.lato(
         color: base.bodyMedium!.color,
-        fontSize: 10,
+        fontSize: 15,
       ),
       bodyLarge: GoogleFonts.lato(
         color: base.bodyLarge!.color,

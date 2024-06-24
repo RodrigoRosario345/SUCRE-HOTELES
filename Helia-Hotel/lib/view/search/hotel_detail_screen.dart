@@ -242,19 +242,16 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 width: 140,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                      index == 0
-                                          ? DefaultImages.g1
-                                          : index == 1
-                                              ? DefaultImages.g2
-                                              : index == 2
-                                                  ? DefaultImages.g3
-                                                  : index == 3
-                                                      ? DefaultImages.g4
-                                                      : DefaultImages.g5,
-                                    ),
+                                    image: NetworkImage(widget.hotel.imagenes[
+                                        _randomFiveImageKeys[
+                                            index]]!), // mostramos las 5 imagenes
                                     fit: BoxFit.fill,
                                   ),
+                                  border: Border.all(
+                                    color: Colors.white, // Color del borde
+                                    width: 2.0, // Ancho del borde
+                                  ),
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
                             );

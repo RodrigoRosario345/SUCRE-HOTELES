@@ -407,7 +407,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 size: 15,
                               ),
                               Text(
-                                "  4.8  ",
+                                "4.8",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge!
@@ -416,17 +416,20 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                       color: HexColor(
                                           AppTheme.primaryColorString!),
                                     ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                               Text(
-                                "(3 valoraciones)",
+                                "(3)",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
                                     .copyWith(
                                       fontSize: 14,
                                     ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                               const Expanded(child: SizedBox()),
+                              //const Spacer(),
                               Text(
                                 "Ver todo",
                                 style: Theme.of(context)

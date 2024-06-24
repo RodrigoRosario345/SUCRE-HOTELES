@@ -297,12 +297,12 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: ReadMoreText(
-                          style:
-                              Theme.of(context).textTheme.bodySmall!.copyWith(
-                                    fontSize: 14,
-                                    height: 1.4,
-                                  ),
-                          'El On Hotel Boutique se encuentra en Sucre y ofrece jardín. Cuenta con restaurante, recepción 24 horas, salón compartido y WiFi gratuita. El establecimiento cuenta con centro de negocios, salas de reuniones, mostrador de información turística y servicio de planchado.',
+                          widget.hotel
+                              .descripcion, // Aquí se pasa directamente la descripción como String
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(fontSize: 18),
                           trimLines: 4,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: '...Ver más',

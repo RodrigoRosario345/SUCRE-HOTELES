@@ -171,7 +171,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                             const SizedBox(width: 8),
                             Flexible(
                               child: Text(
-                                widget.hotel.ubicacion, // descripcion del hotel
+                                widget.hotel.ubicacion,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
@@ -302,14 +302,14 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall!
-                              .copyWith(fontSize: 20),
+                              .copyWith(fontSize: 16),
                           trimLines: 4,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: '...Ver más',
                           moreStyle:
                               Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize:
-                                        20, // Ajusta también el tamaño de la fuente para "...Ver más"
+                                        16, // Ajusta también el tamaño de la fuente para "...Ver más"
                                     fontFamily: Theme.of(context).platform ==
                                             TargetPlatform.iOS
                                         ? 'San Francisco'

@@ -627,7 +627,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                 child: Row(
                   children: [
                     Text(
-                      "799BOL",
+                      "${widget.hotel.precio.toString()}BOL",
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: HexColor(AppTheme.primaryColorString!),
                             fontSize: 32,

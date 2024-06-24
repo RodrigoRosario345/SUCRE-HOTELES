@@ -40,6 +40,142 @@ class _HomeViewState extends State<HomeView> {
     _getData();
   }
 
+  // Insertar datos de habitaciones
+  Future<void> agregarHabitacionesLimitadas() async {
+    final dbRef = FirebaseDatabase.instance.ref();
+
+    // Lista de hoteles y sus habitaciones a agregar
+    Map<String, List<Map<String, dynamic>>> habitacionesPorHotel = {
+      "hotel1": [
+        {
+          "tipo_habitacion": "matrimonial",
+          "cantidad": 3,
+          "cod_habitacion": "hab002"
+        },
+        {
+          "tipo_habitacion": "familiar",
+          "cantidad": 4,
+          "cod_habitacion": "hab003"
+        },
+        {"tipo_habitacion": "suite", "cantidad": 2, "cod_habitacion": "hab004"},
+      ],
+      "hotel2": [
+        {
+          "tipo_habitacion": "matrimonial",
+          "cantidad": 3,
+          "cod_habitacion": "hab005"
+        },
+        {
+          "tipo_habitacion": "familiar",
+          "cantidad": 4,
+          "cod_habitacion": "hab006"
+        },
+        {"tipo_habitacion": "suite", "cantidad": 5, "cod_habitacion": "hab007"},
+      ],
+      "hotel3": [
+        {
+          "tipo_habitacion": "matrimonial",
+          "cantidad": 4,
+          "cod_habitacion": "hab008"
+        },
+        {
+          "tipo_habitacion": "familiar",
+          "cantidad": 5,
+          "cod_habitacion": "hab009"
+        },
+        {"tipo_habitacion": "suite", "cantidad": 4, "cod_habitacion": "hab010"},
+      ],
+      "hotel4": [
+        {
+          "tipo_habitacion": "matrimonial",
+          "cantidad": 2,
+          "cod_habitacion": "hab011"
+        },
+        {
+          "tipo_habitacion": "familiar",
+          "cantidad": 5,
+          "cod_habitacion": "hab012"
+        },
+        {"tipo_habitacion": "suite", "cantidad": 5, "cod_habitacion": "hab013"},
+      ],
+      "hotel5": [
+        {
+          "tipo_habitacion": "matrimonial",
+          "cantidad": 4,
+          "cod_habitacion": "hab014"
+        },
+        {
+          "tipo_habitacion": "familiar",
+          "cantidad": 2,
+          "cod_habitacion": "hab015"
+        },
+        {"tipo_habitacion": "suite", "cantidad": 2, "cod_habitacion": "hab016"},
+      ],
+      "hotel6": [
+        {
+          "tipo_habitacion": "matrimonial",
+          "cantidad": 2,
+          "cod_habitacion": "hab017"
+        },
+        {
+          "tipo_habitacion": "familiar",
+          "cantidad": 3,
+          "cod_habitacion": "hab018"
+        },
+        {"tipo_habitacion": "suite", "cantidad": 4, "cod_habitacion": "hab019"},
+      ],
+      "hotel7": [
+        {
+          "tipo_habitacion": "matrimonial",
+          "cantidad": 1,
+          "cod_habitacion": "hab020"
+        },
+        {
+          "tipo_habitacion": "familiar",
+          "cantidad": 4,
+          "cod_habitacion": "hab021"
+        },
+        {"tipo_habitacion": "suite", "cantidad": 3, "cod_habitacion": "hab022"},
+      ],
+      "hotel8": [
+        {
+          "tipo_habitacion": "matrimonial",
+          "cantidad": 3,
+          "cod_habitacion": "hab023"
+        },
+        {
+          "tipo_habitacion": "familiar",
+          "cantidad": 1,
+          "cod_habitacion": "hab024"
+        },
+        {"tipo_habitacion": "suite", "cantidad": 4, "cod_habitacion": "hab025"},
+      ],
+    };
+
+    // Iterar sobre cada hotel y sus habitaciones para agregarlas
+    for (var hotelId in habitacionesPorHotel.keys) {
+      int habitacionesAgregadasPorHotel = 0;
+
+      for (var habitacion in habitacionesPorHotel[hotelId]!) {
+        // Verificar límite de habitaciones por hotel
+        if (habitacionesAgregadasPorHotel < 3) {
+          // Construir el identificador de la habitación
+          String habitacionId =
+              'habitacion${habitacionesAgregadasPorHotel + 1}';
+          // Agregar cada habitación al hotel correspondiente en Firebase
+          await dbRef.child('hoteles/$hotelId/habitaciones/$habitacionId').set({
+            "tipo_habitacion": habitacion["tipo_habitacion"],
+            "cantidad": habitacion["cantidad"],
+            "cod_habitacion": habitacion["cod_habitacion"],
+          });
+          habitacionesAgregadasPorHotel++;
+        } else {
+          break; // Salir del bucle interno si se alcanza el límite
+        }
+      }
+    }
+  }
+
   _initializeUserData() async {
     final userId = FirebaseAuth.instance.currentUser?.uid;
     if (userId != null) {
@@ -72,6 +208,7 @@ class _HomeViewState extends State<HomeView> {
 
         setState(() {
           _hoteles = hoteles;
+          //agregarHabitacionesLimitadas();
           _isLoading = false;
         });
       } else {

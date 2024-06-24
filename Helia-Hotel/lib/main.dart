@@ -17,6 +17,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   EasyLoading.instance
     ..successWidget = Column(
       mainAxisAlignment: MainAxisAlignment.center,

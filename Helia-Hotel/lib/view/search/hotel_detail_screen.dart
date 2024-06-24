@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:math';
+
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,6 +28,34 @@ class HotelDetailScreen extends StatefulWidget {
 
 class _HotelDetailScreenState extends State<HotelDetailScreen> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
+  late List<String> _firstFourImageKeys; // Para las primeras 4 imágenes
+  late List<String> _randomFiveImageKeys; // Para 5 imágenes aleatorias
+  late List<String> _allImageKeys;
+  @override
+  void initState() {
+    super.initState();
+    _selectImages();
+  }
+
+  void _selectImages() {
+    var allKeys = widget.hotel.imagenes.keys.toList();
+    _allImageKeys = List.from(allKeys);
+    // Asegura que haya suficientes imágenes para seleccionar
+    if (allKeys.length >= 8) {
+      _firstFourImageKeys =
+          allKeys.take(4).toList(); // Toma las primeras 4 claves sin mezclar
+
+      allKeys.shuffle(
+          Random()); // Mezcla la lista de claves para la selección aleatoria
+      _randomFiveImageKeys = allKeys
+          .take(5)
+          .toList(); // Selecciona las primeras 5 claves después de mezclar
+    } else {
+      // Maneja el caso en que no hay suficientes imágenes
+      print("No hay suficientes imágenes para seleccionar.");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

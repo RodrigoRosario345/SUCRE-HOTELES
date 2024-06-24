@@ -158,8 +158,8 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment
-                              .start, // Alinea los hijos al inicio del eje transversal
+                          //crossAxisAlignment: CrossAxisAlignment
+                          //    .start, // Alinea los hijos al inicio del eje transversal
                           children: [
                             SizedBox(
                               height: 20,

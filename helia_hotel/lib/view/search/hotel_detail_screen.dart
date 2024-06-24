@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:math';
+
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,9 +16,11 @@ import 'package:hotel/view/search/rating_screen.dart';
 import 'package:hotel/view/search/select_date_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:readmore/readmore.dart';
+import 'package:hotel/model/data_modelo.dart';
 
 class HotelDetailScreen extends StatefulWidget {
-  const HotelDetailScreen({super.key});
+  final Hotel hotel;
+  const HotelDetailScreen({super.key, required this.hotel});
 
   @override
   State<HotelDetailScreen> createState() => _HotelDetailScreenState();
@@ -24,6 +28,34 @@ class HotelDetailScreen extends StatefulWidget {
 
 class _HotelDetailScreenState extends State<HotelDetailScreen> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
+  late List<String> _firstFourImageKeys; // Para las primeras 4 imágenes
+  late List<String> _randomFiveImageKeys; // Para 5 imágenes aleatorias
+  late List<String> _allImageKeys;
+  @override
+  void initState() {
+    super.initState();
+    _selectImages();
+  }
+
+  void _selectImages() {
+    var allKeys = widget.hotel.imagenes.keys.toList();
+    _allImageKeys = List.from(allKeys);
+    // Asegura que haya suficientes imágenes para seleccionar
+    if (allKeys.length >= 8) {
+      _firstFourImageKeys =
+          allKeys.take(4).toList(); // Toma las primeras 4 claves sin mezclar
+
+      allKeys.shuffle(
+          Random()); // Mezcla la lista de claves para la selección aleatoria
+      _randomFiveImageKeys = allKeys
+          .take(5)
+          .toList(); // Selecciona las primeras 5 claves después de mezclar
+    } else {
+      // Maneja el caso en que no hay suficientes imágenes
+      print("No hay suficientes imágenes para seleccionar.");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,17 +79,17 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                   return Container(
                     height: 300,
                     width: Get.width,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(
-                          DefaultImages.hotelBg,
-                        ),
+                        image: NetworkImage(
+                            widget.hotel.imagenes[_firstFourImageKeys[index]]!),
                         fit: BoxFit.fill,
                       ),
                     ),
                   );
                 },
-                itemCount: 4,
+                itemCount: _firstFourImageKeys
+                    .length, // Usa la longitud de _selectedImageKeys,
               ),
             ),
             elevation: 0,
@@ -115,7 +147,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Text(
-                          "On Hotel Boutique",
+                          widget.hotel.nombre, // nombre del hotel
                           style:
                               Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 30,
@@ -126,6 +158,8 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Row(
+                          //crossAxisAlignment: CrossAxisAlignment
+                          //    .start, // Alinea los hijos al inicio del eje transversal
                           children: [
                             SizedBox(
                               height: 20,
@@ -135,12 +169,14 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                               ),
                             ),
                             const SizedBox(width: 8),
-                            Text(
-                              "Calle Potosi 300 esquina grau, 2000 Sucre, Bolivia",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(fontSize: 14),
+                            Flexible(
+                              child: Text(
+                                widget.hotel.ubicacion,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(fontSize: 14),
+                              ),
                             ),
                           ],
                         ),
@@ -158,7 +194,10 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       InkWell(
                         onTap: () {
                           Get.to(
-                            const GalleryScreen(),
+                            GalleryScreen(
+                                hotel: widget.hotel,
+                                allImageKeys:
+                                    _allImageKeys), // galeria que muestra las imagenes
                             transition: Transition.rightToLeft,
                           );
                         },
@@ -206,19 +245,16 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 width: 140,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                      index == 0
-                                          ? DefaultImages.g1
-                                          : index == 1
-                                              ? DefaultImages.g2
-                                              : index == 2
-                                                  ? DefaultImages.g3
-                                                  : index == 3
-                                                      ? DefaultImages.g4
-                                                      : DefaultImages.g5,
-                                    ),
+                                    image: NetworkImage(widget.hotel.imagenes[
+                                        _randomFiveImageKeys[
+                                            index]]!), // mostramos las 5 imagenes
                                     fit: BoxFit.fill,
                                   ),
+                                  border: Border.all(
+                                    color: Colors.white, // Color del borde
+                                    width: 2.0, // Ancho del borde
+                                  ),
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
                             );
@@ -261,18 +297,23 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: ReadMoreText(
-                          style:
-                              Theme.of(context).textTheme.bodySmall!.copyWith(
-                                    fontSize: 14,
-                                    height: 1.4,
-                                  ),
-                          'El On Hotel Boutique se encuentra en Sucre y ofrece jardín. Cuenta con restaurante, recepción 24 horas, salón compartido y WiFi gratuita. El establecimiento cuenta con centro de negocios, salas de reuniones, mostrador de información turística y servicio de planchado.',
+                          widget.hotel
+                              .descripcion, // Aquí se pasa directamente la descripción como String
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(fontSize: 16),
                           trimLines: 4,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: '...Ver más',
                           moreStyle:
                               Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    fontSize: 18,
+                                    fontSize:
+                                        16, // Ajusta también el tamaño de la fuente para "...Ver más"
+                                    fontFamily: Theme.of(context).platform ==
+                                            TargetPlatform.iOS
+                                        ? 'San Francisco'
+                                        : 'Helvetica', // Fuente similar a Apple para "...Ver más"
                                   ),
                         ),
                       ),
@@ -366,7 +407,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                 size: 15,
                               ),
                               Text(
-                                "  4.8  ",
+                                "4.8",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge!
@@ -375,17 +416,20 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                       color: HexColor(
                                           AppTheme.primaryColorString!),
                                     ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                               Text(
-                                "(3 valoraciones)",
+                                "(3)",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
                                     .copyWith(
                                       fontSize: 14,
                                     ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                               const Expanded(child: SizedBox()),
+                              //const Spacer(),
                               Text(
                                 "Ver todo",
                                 style: Theme.of(context)
@@ -583,7 +627,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                 child: Row(
                   children: [
                     Text(
-                      "799BOL",
+                      "${widget.hotel.precio.toString()}BOL",
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: HexColor(AppTheme.primaryColorString!),
                             fontSize: 32,

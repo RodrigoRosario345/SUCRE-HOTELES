@@ -53,9 +53,11 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
+  // obtiene data de los hoteles
   _getData() async {
     try {
       final DatabaseReference ref = FirebaseDatabase.instance.ref('hoteles');
+
       DatabaseEvent event = await ref.once();
       DataSnapshot snapshot = event.snapshot;
 
@@ -102,6 +104,7 @@ class _HomeViewState extends State<HomeView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: MediaQuery.of(context).padding.top + 20),
+        // Barra de navegación superior
         Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: Row(
@@ -166,6 +169,7 @@ class _HomeViewState extends State<HomeView> {
             ],
           ),
         ),
+
         Expanded(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -279,8 +283,9 @@ class _HomeViewState extends State<HomeView> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) =>
-                                                const HotelDetailScreen(),
+                                            builder: (context) => HotelDetailScreen(
+                                                hotel: _hoteles[
+                                                    index]), // enviamos el Hotel a Detalles
                                           ));
                                     },
                                     child: Container(
@@ -499,132 +504,145 @@ class _HomeViewState extends State<HomeView> {
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(14.0),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                            height: 100,
-                                            width: 100,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                Radius.circular(16),
-                                              ),
-                                              image: DecorationImage(
-                                                  image: NetworkImage(
-                                                      _hoteles[index].imagenes[
-                                                          'imagen1']!),
-                                                  fit: BoxFit.fill),
-                                            )),
-                                        const SizedBox(width: 10),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                _hoteles[index].nombre,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge!
-                                                    .copyWith(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                    ),
-                                              ),
-                                              const SizedBox(height: 15),
-                                              Text(
-                                                _hoteles[index]
-                                                    .lugar, //Sucre, Bolivia
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge!
-                                                    .copyWith(
-                                                      fontSize: 14,
-                                                      color: const Color(
-                                                          0xff757575),
-                                                    ),
-                                              ),
-                                              const SizedBox(height: 15),
-                                              Row(
-                                                children: [
-                                                  const Icon(
-                                                    Icons.star,
-                                                    color: Color(0xffFFD300),
-                                                    size: 15,
-                                                  ),
-                                                  Text(
-                                                    "  4.8  ",
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyLarge!
-                                                        .copyWith(
-                                                          fontSize: 14,
-                                                          color: HexColor(AppTheme
-                                                              .primaryColorString!),
-                                                        ),
-                                                  ),
-                                                  Text(
-                                                    "120",
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyLarge!
-                                                        .copyWith(
-                                                          fontSize: 14,
-                                                          color: const Color(
-                                                              0xff757575),
-                                                        ),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                "${_hoteles[index].precio} BOL",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge!
-                                                    .copyWith(
-                                                      fontSize: 15,
-                                                      color: HexColor(AppTheme
-                                                          .primaryColorString!),
-                                                    ),
-                                              ),
-                                              const SizedBox(height: 8),
-                                              Text(
-                                                "/ noche",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyLarge!
-                                                    .copyWith(
-                                                      fontSize: 10,
-                                                      color: const Color(
-                                                          0xff757575),
-                                                    ),
-                                              ),
-                                              const SizedBox(height: 20),
-                                              SizedBox(
-                                                height: 24,
-                                                width: 24,
-                                                child: SvgPicture.asset(
-                                                  DefaultImages.bookmark,
-                                                  color: HexColor(AppTheme
-                                                      .primaryColorString!),
+                                    child: InkWell(
+                                      onTap: () {
+                                        // Acción al tocar, por ejemplo, navegar a otra pantalla
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  HotelDetailScreen(
+                                                      hotel: _hoteles[index])),
+                                        );
+                                      },
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                              height: 100,
+                                              width: 100,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                  Radius.circular(16),
                                                 ),
-                                              ),
-                                            ],
+                                                image: DecorationImage(
+                                                    image: NetworkImage(
+                                                        _hoteles[index]
+                                                                .imagenes[
+                                                            'imagen1']!),
+                                                    fit: BoxFit.fill),
+                                              )),
+                                          const SizedBox(width: 10),
+                                          Expanded(
+                                            flex: 4,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  _hoteles[index].nombre,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyLarge!
+                                                      .copyWith(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
+                                                ),
+                                                const SizedBox(height: 15),
+                                                Text(
+                                                  _hoteles[index]
+                                                      .lugar, //Sucre, Bolivia
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyLarge!
+                                                      .copyWith(
+                                                        fontSize: 14,
+                                                        color: const Color(
+                                                            0xff757575),
+                                                      ),
+                                                ),
+                                                const SizedBox(height: 15),
+                                                Row(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.star,
+                                                      color: Color(0xffFFD300),
+                                                      size: 15,
+                                                    ),
+                                                    Text(
+                                                      "  4.8  ",
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyLarge!
+                                                          .copyWith(
+                                                            fontSize: 14,
+                                                            color: HexColor(AppTheme
+                                                                .primaryColorString!),
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      "120",
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyLarge!
+                                                          .copyWith(
+                                                            fontSize: 14,
+                                                            color: const Color(
+                                                                0xff757575),
+                                                          ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
                                           ),
-                                        )
-                                      ],
+                                          Expanded(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Text(
+                                                  "${_hoteles[index].precio} BOL",
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyLarge!
+                                                      .copyWith(
+                                                        fontSize: 15,
+                                                        color: HexColor(AppTheme
+                                                            .primaryColorString!),
+                                                      ),
+                                                ),
+                                                const SizedBox(height: 8),
+                                                Text(
+                                                  "/ noche",
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyLarge!
+                                                      .copyWith(
+                                                        fontSize: 10,
+                                                        color: const Color(
+                                                            0xff757575),
+                                                      ),
+                                                ),
+                                                const SizedBox(height: 20),
+                                                SizedBox(
+                                                  height: 24,
+                                                  width: 24,
+                                                  child: SvgPicture.asset(
+                                                    DefaultImages.bookmark,
+                                                    color: HexColor(AppTheme
+                                                        .primaryColorString!),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -707,7 +725,7 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HotelDetailScreen(),
+                builder: (context) => HotelDetailScreen(hotel: Hotel.empty()),
               ),
             );
           },
@@ -735,7 +753,7 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HotelDetailScreen(),
+                builder: (context) => HotelDetailScreen(hotel: Hotel.empty()),
               ),
             );
           },

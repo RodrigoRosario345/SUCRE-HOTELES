@@ -9,6 +9,7 @@ import 'package:hotel/controller/home_controller.dart';
 import 'package:hotel/view/search/filter_view.dart';
 import 'package:hotel/view/search/hotel_detail_screen.dart';
 import 'package:hotel/widget/custom_textfield.dart';
+import 'package:hotel/model/data_modelo.dart';
 
 class SearchController extends GetxController {
   final controller = TextEditingController().obs;
@@ -512,7 +513,7 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HotelDetailScreen(),
+                builder: (context) => HotelDetailScreen(hotel: Hotel.empty()),
               ),
             );
           },
@@ -540,7 +541,7 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HotelDetailScreen(),
+                builder: (context) => HotelDetailScreen(hotel: Hotel.empty()),
               ),
             );
           },

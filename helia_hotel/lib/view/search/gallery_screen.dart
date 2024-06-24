@@ -3,9 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hotel/config/images.dart';
+import 'package:hotel/model/data_modelo.dart';
 
 class GalleryScreen extends StatefulWidget {
-  const GalleryScreen({super.key});
+  final Hotel hotel;
+  final List<String> allImageKeys;
+  const GalleryScreen(
+      {super.key, required this.hotel, required this.allImageKeys});
 
   @override
   State<GalleryScreen> createState() => _GalleryScreenState();
@@ -44,7 +48,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
       body: GridView.builder(
         padding:
             const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 20),
-        itemCount: 10,
+        itemCount: widget.allImageKeys.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisExtent: 150,
@@ -55,29 +59,15 @@ class _GalleryScreenState extends State<GalleryScreen> {
           return Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                  index == 0
-                      ? DefaultImages.g1
-                      : index == 1
-                          ? DefaultImages.g2
-                          : index == 2
-                              ? DefaultImages.g3
-                              : index == 3
-                                  ? DefaultImages.g4
-                                  : index == 4
-                                      ? DefaultImages.g5
-                                      : index == 5
-                                          ? DefaultImages.g7
-                                          : index == 6
-                                              ? DefaultImages.g11
-                                              : index == 7
-                                                  ? DefaultImages.g8
-                                                  : index == 8
-                                                      ? DefaultImages.g9
-                                                      : DefaultImages.g10,
-                ),
+                image: NetworkImage(
+                    widget.hotel.imagenes[widget.allImageKeys[index]]!),
                 fit: BoxFit.fill,
               ),
+              border: Border.all(
+                color: Colors.white, // Color del borde
+                width: 2.0, // Ancho del borde
+              ),
+              borderRadius: BorderRadius.circular(20),
             ),
           );
         },

@@ -53,9 +53,11 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
+  // obtiene data de los hoteles
   _getData() async {
     try {
       final DatabaseReference ref = FirebaseDatabase.instance.ref('hoteles');
+
       DatabaseEvent event = await ref.once();
       DataSnapshot snapshot = event.snapshot;
 
@@ -102,6 +104,7 @@ class _HomeViewState extends State<HomeView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: MediaQuery.of(context).padding.top + 20),
+        // Barra de navegación superior
         Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: Row(
@@ -166,6 +169,7 @@ class _HomeViewState extends State<HomeView> {
             ],
           ),
         ),
+
         Expanded(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -279,8 +283,9 @@ class _HomeViewState extends State<HomeView> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) =>
-                                                const HotelDetailScreen(),
+                                            builder: (context) => HotelDetailScreen(
+                                                hotel: _hoteles[
+                                                    index]), // enviamos el Hotel a Detalles
                                           ));
                                     },
                                     child: Container(
@@ -707,7 +712,7 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HotelDetailScreen(),
+                builder: (context) => HotelDetailScreen(hotel: Hotel.empty()),
               ),
             );
           },
@@ -735,7 +740,7 @@ class CustomSearchDelegate extends SearchDelegate {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HotelDetailScreen(),
+                builder: (context) => HotelDetailScreen(hotel: Hotel.empty()),
               ),
             );
           },

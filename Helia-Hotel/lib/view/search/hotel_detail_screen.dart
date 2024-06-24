@@ -171,8 +171,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                             const SizedBox(width: 8),
                             Flexible(
                               child: Text(
-                                widget
-                                    .hotel.descripcion, // descripcion del hotel
+                                widget.hotel.ubicacion, // descripcion del hotel
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!

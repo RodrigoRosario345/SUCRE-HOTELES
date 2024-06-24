@@ -194,7 +194,10 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       InkWell(
                         onTap: () {
                           Get.to(
-                            const GalleryScreen(),
+                            GalleryScreen(
+                                hotel: widget.hotel,
+                                allImageKeys:
+                                    _allImageKeys), // galeria que muestra las imagenes
                             transition: Transition.rightToLeft,
                           );
                         },
@@ -299,13 +302,18 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall!
-                              .copyWith(fontSize: 18),
+                              .copyWith(fontSize: 20),
                           trimLines: 4,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: '...Ver más',
                           moreStyle:
                               Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    fontSize: 18,
+                                    fontSize:
+                                        20, // Ajusta también el tamaño de la fuente para "...Ver más"
+                                    fontFamily: Theme.of(context).platform ==
+                                            TargetPlatform.iOS
+                                        ? 'San Francisco'
+                                        : 'Helvetica', // Fuente similar a Apple para "...Ver más"
                                   ),
                         ),
                       ),

@@ -79,17 +79,17 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                   return Container(
                     height: 300,
                     width: Get.width,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(
-                          DefaultImages.hotelBg,
-                        ),
+                        image: NetworkImage(
+                            widget.hotel.imagenes[_firstFourImageKeys[index]]!),
                         fit: BoxFit.fill,
                       ),
                     ),
                   );
                 },
-                itemCount: 4,
+                itemCount: _firstFourImageKeys
+                    .length, // Usa la longitud de _selectedImageKeys,
               ),
             ),
             elevation: 0,

@@ -46,3 +46,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+BACKEND/insertar_script_python_flutter.py
+BACKEND/static/pruebas.py

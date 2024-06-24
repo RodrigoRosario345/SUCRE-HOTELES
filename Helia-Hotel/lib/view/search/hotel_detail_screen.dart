@@ -14,9 +14,11 @@ import 'package:hotel/view/search/rating_screen.dart';
 import 'package:hotel/view/search/select_date_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:readmore/readmore.dart';
+import 'package:hotel/model/data_modelo.dart';
 
 class HotelDetailScreen extends StatefulWidget {
-  const HotelDetailScreen({super.key});
+  final Hotel hotel;
+  const HotelDetailScreen({super.key, required this.hotel});
 
   @override
   State<HotelDetailScreen> createState() => _HotelDetailScreenState();

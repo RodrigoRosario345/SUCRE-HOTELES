@@ -25,4 +25,13 @@ class Hotel {
       imagenes: Map<String, String>.from(json['imagenes'] ?? {}),
     );
   }
+
+  // Constructor vacío
+  Hotel.empty()
+      : nombre = '',
+        lugar = '',
+        ubicacion = '',
+        precio = 0,
+        descripcion = '',
+        imagenes = {};
 }

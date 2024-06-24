@@ -128,6 +128,8 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment
+                              .start, // Alinea los hijos al inicio del eje transversal
                           children: [
                             SizedBox(
                               height: 20,
@@ -137,12 +139,15 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                               ),
                             ),
                             const SizedBox(width: 8),
-                            Text(
-                              "Calle Potosi 300 esquina grau, 2000 Sucre, Bolivia",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(fontSize: 14),
+                            Flexible(
+                              child: Text(
+                                widget
+                                    .hotel.descripcion, // descripcion del hotel
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(fontSize: 14),
+                              ),
                             ),
                           ],
                         ),

@@ -117,7 +117,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Text(
-                          "On Hotel Boutique",
+                          widget.hotel.nombre, // nombre del hotel
                           style:
                               Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     fontSize: 30,

@@ -4,6 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
 import 'package:hotel/widget/custom_container.dart';
+import 'package:hotel/controller/date_controller.dart';
+import 'package:hotel/controller/auth_controller.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hotel/view/tab_screen.dart';
 
 class TicketScreen extends StatefulWidget {
   const TicketScreen({super.key});
@@ -12,8 +19,49 @@ class TicketScreen extends StatefulWidget {
   State<TicketScreen> createState() => _TicketScreenState();
 }
 
+
+
 class _TicketScreenState extends State<TicketScreen> {
+  
+  final DateController dateController = Get.find<DateController>(); // Encuentra el controlador existente
+  final AuthController authController = Get.find<AuthController>();
+
+  final DatabaseReference _databaseReference = FirebaseDatabase.instance.ref();
+
+  String? nombre;
+  String? userId;
+  String? apellidos;
+  String? email;
+  String? cel;
+  String fechaReserva = DateFormat('MM/dd/yyyy').format(DateTime.now());
+
+  String _formatDate(DateTime? date) {
+    if (date == null) return "Seleccione";
+    return "${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}";
+  }
+  
   @override
+
+  void initState() {
+    super.initState();
+    _initializeUserData();
+  }
+
+  _initializeUserData() async {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final userInfo = await authController.getUserInfo(userId);
+      if (userInfo != null) {
+        setState(() {
+          nombre = userInfo['nombre'];
+          apellidos = userInfo['apellidos'];
+          email = userInfo['email'];
+          cel = userInfo['celular'];
+        });
+      }
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -67,7 +115,7 @@ class _TicketScreenState extends State<TicketScreen> {
                         children: [
                           Center(
                             child: Text(
-                              "Hotel On boutique",
+                              "${dateController.nomHotel}",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!
@@ -91,23 +139,23 @@ class _TicketScreenState extends State<TicketScreen> {
                           const SizedBox(height: 30),
                           Row(
                             children: [
-                              customColumn("Nombre", "Rodrigo Rosario"),
+                              customColumn("Nombre", '${nombre ?? 'Cargando...'} ${apellidos ?? ''}'),
                               const SizedBox(width: 14),
-                              customColumn("Numero celular", "+591 77537801"),
+                              customColumn("Numero celular", '${cel ?? 'Cargando...'}'),
                             ],
                           ),
                           const SizedBox(height: 30),
                           Row(
                             children: [
-                              customColumn("Fecha de entrada", "Jun 29, 2023"),
+                              customColumn("Fecha de entrada", _formatDate(dateController.startDate.value)),
                               const SizedBox(width: 14),
-                              customColumn("Fecha de salida", "Jun 30, 2023"),
+                              customColumn("Fecha de salida", _formatDate(dateController.endDate.value)),
                             ],
                           ),
                           const SizedBox(height: 30),
                           Row(
                             children: [
-                              customColumn("Hotel", "Royale President"),
+                              customColumn("Hotel", "${dateController.nomHotel}"),
                               const SizedBox(width: 14),
                               customColumn("Invitados", "3"),
                             ],
@@ -121,8 +169,13 @@ class _TicketScreenState extends State<TicketScreen> {
               ),
             ),
             CustomlabelLarge(
-              text: "Descargar Boleto",
-              onTap: () {},
+              text: "Volver al inicio",
+              onTap: () {
+                              Get.offAll(
+                                () => const TabScreen(),
+                                transition: Transition.rightToLeft,
+                              );
+                            },
             ),
             const SizedBox(height: 20),
           ],

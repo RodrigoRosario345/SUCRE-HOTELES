@@ -34,7 +34,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
     super.initState();
     // Al inicializar la pantalla, guarda los datos en el controlador
     dateController.setHabitacionData(
-        widget.habitacion.tipoHabitacion, widget.habitacion.precio);
+        widget.habitacion.tipoHabitacion, widget.habitacion.precio, widget.habitacion.codHabitacion);
   }
 
   @override

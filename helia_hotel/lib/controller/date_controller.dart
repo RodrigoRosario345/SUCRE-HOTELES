@@ -7,6 +7,7 @@ class DateController extends GetxController {
 
   String tipoHabitacion = '';
   double precio = 0.0;
+  String codHabit = '';
 
   String nomHotel = '';
 
@@ -14,9 +15,10 @@ class DateController extends GetxController {
     this.nomHotel = nombre;
   }
   
-  void setHabitacionData(String tipo, double precio) {
+  void setHabitacionData(String tipo, double precio,String tipo2 ) {
     this.tipoHabitacion = tipo;
     this.precio = precio;
+    this.codHabit = tipo2;
   }
 
   void setDates(DateTime? start, DateTime? end) {

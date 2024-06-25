@@ -10,6 +10,7 @@ import 'package:hotel/widget/custom_container.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hotel/controller/auth_controller.dart';
 import 'package:intl/intl.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class ConfirmPaymentScreen extends StatefulWidget {
   const ConfirmPaymentScreen({super.key});
@@ -20,14 +21,43 @@ class ConfirmPaymentScreen extends StatefulWidget {
 
 class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
   final DateController dateController = Get.find<DateController>(); // Encuentra el controlador existente
-
   final AuthController authController = Get.find<AuthController>();
+  
+  final DatabaseReference _databaseReference = FirebaseDatabase.instance.ref();
+  
   String? nombre;
+  String? userId;
   String? apellidos;
   String? email;
   String? cel;
   String fechaReserva = DateFormat('MM/dd/yyyy').format(DateTime.now());
 
+  _saveReservationToFirebase() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        DatabaseReference reservasRef = FirebaseDatabase.instance.ref().child('reservas').push();
+        
+        await reservasRef.set({
+          "userId": userId,
+          "codHabitacion": dateController.codHabit,
+          "fecha_inicio": _formatDate(dateController.startDate.value),
+          "fecha_final": _formatDate(dateController.endDate.value),
+          "impuesto": _calculateTax().toStringAsFixed(2),
+          "precio_total": _calculateGrandTotal().toStringAsFixed(2),
+        });
+        
+        print("Reserva guardada exitosamente en Firebase.");
+      } else {
+        print("Usuario no autenticado.");
+      }
+    } catch (error) {
+      print("Error al guardar la reserva en Firebase: $error");
+    }
+  }
+  
+  
+  
   String _formatDate(DateTime? date) {
     if (date == null) return "Seleccione";
     return "${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}";
@@ -374,6 +404,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
             CustomlabelLarge(
               text: "Confirmar pago",
               onTap: () {
+                _saveReservationToFirebase();
                 Get.dialog(
                   AlertDialog(
                     backgroundColor: AppTheme.isLightTheme == true

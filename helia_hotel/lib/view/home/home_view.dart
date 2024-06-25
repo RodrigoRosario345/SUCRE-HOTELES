@@ -40,6 +40,199 @@ class _HomeViewState extends State<HomeView> {
     _getData();
   }
 
+  // Insertar datos de habitaciones
+  Future<void> agregarHabitacionesLimitadas() async {
+    final dbRef = FirebaseDatabase.instance.ref();
+
+    // Lista de hoteles y sus habitaciones a agregar
+    Map<String, List<Map<String, dynamic>>> habitacionesPorHotel = {
+      "hotel1": [
+        {
+          "tipoHabitacion": "Familiar",
+          "cantidad": 3,
+          "codHabitacion": "hab002",
+          "precio": 200
+        },
+        {
+          "tipoHabitacion": "Matrimonial",
+          "cantidad": 4,
+          "codHabitacion": "hab003",
+          "precio": 340
+        },
+        {
+          "tipoHabitacion": "Suite",
+          "cantidad": 2,
+          "codHabitacion": "hab004",
+          "precio": 400
+        },
+      ],
+      "hotel2": [
+        {
+          "tipoHabitacion": "Junior Suite",
+          "cantidad": 3,
+          "codHabitacion": "hab005",
+          "precio": 250
+        },
+        {
+          "tipoHabitacion": "Familiar",
+          "cantidad": 4,
+          "codHabitacion": "hab006",
+          "precio": 450
+        },
+        {
+          "tipoHabitacion": "Matrimonial",
+          "cantidad": 5,
+          "codHabitacion": "hab007",
+          "precio": 340
+        },
+      ],
+      "hotel3": [
+        {
+          "tipoHabitacion": "Gran Suite",
+          "cantidad": 4,
+          "codHabitacion": "hab008",
+          "precio": 500
+        },
+        {
+          "tipoHabitacion": "Familiar",
+          "cantidad": 5,
+          "codHabitacion": "hab009",
+          "precio": 350
+        },
+        {
+          "tipoHabitacion": "Indivial",
+          "cantidad": 4,
+          "codHabitacion": "hab010",
+          "precio": 200
+        },
+      ],
+      "hotel4": [
+        {
+          "tipoHabitacion": "Indivial",
+          "cantidad": 2,
+          "codHabitacion": "hab011",
+          "precio": 100
+        },
+        {
+          "tipoHabitacion": "Doble",
+          "cantidad": 5,
+          "codHabitacion": "hab012",
+          "precio": 190
+        },
+        {
+          "tipoHabitacion": "Suite",
+          "cantidad": 5,
+          "codHabitacion": "hab013",
+          "precio": 390
+        },
+      ],
+      "hotel5": [
+        {
+          "tipoHabitacion": "Matrimonial",
+          "cantidad": 4,
+          "codHabitacion": "hab014",
+          "precio": 220
+        },
+        {
+          "tipoHabitacion": "Familiar",
+          "cantidad": 2,
+          "codHabitacion": "hab015",
+          "precio": 350
+        },
+        {
+          "tipoHabitacion": "Suite",
+          "cantidad": 2,
+          "codHabitacion": "hab016",
+          "precio": 480
+        },
+      ],
+      "hotel6": [
+        {
+          "tipoHabitacion": "Matrimonial",
+          "cantidad": 2,
+          "codHabitacion": "hab017",
+          "precio": 255
+        },
+        {
+          "tipoHabitacion": "Suite Principal",
+          "cantidad": 3,
+          "codHabitacion": "hab018",
+          "precio": 599
+        },
+        {
+          "tipoHabitacion": "Suite",
+          "cantidad": 4,
+          "codHabitacion": "hab019",
+          "precio": 350
+        },
+      ],
+      "hotel7": [
+        {
+          "tipoHabitacion": "Matrimonial",
+          "cantidad": 1,
+          "codHabitacion": "hab020",
+          "precio": 200
+        },
+        {
+          "tipoHabitacion": "Familiar",
+          "cantidad": 4,
+          "codHabitacion": "hab021",
+          "precio": 355
+        },
+        {
+          "tipoHabitacion": "Junior Suite",
+          "cantidad": 3,
+          "codHabitacion": "hab022",
+          "precio": 400
+        },
+      ],
+      "hotel8": [
+        {
+          "tipoHabitacion": "Gran Suite",
+          "cantidad": 3,
+          "codHabitacion": "hab023",
+          "precio": 590
+        },
+        {
+          "tipoHabitacion": "Familiar",
+          "cantidad": 1,
+          "cod_habitacion": "hab024",
+          "precio": 455
+        },
+        {
+          "tipoHabitacion": "Indiviadual",
+          "cantidad": 4,
+          "codHabitacion": "hab025",
+          "precio": 149
+        },
+      ],
+    };
+
+    // Iterar sobre cada hotel y sus habitaciones para agregarlas
+    for (var hotelId in habitacionesPorHotel.keys) {
+      int habitacionesAgregadasPorHotel = 0;
+
+      for (var habitacion in habitacionesPorHotel[hotelId]!) {
+        // Verificar límite de habitaciones por hotel
+        if (habitacionesAgregadasPorHotel < 3) {
+          // Construir el identificador de la habitación
+          String habitacionId =
+              'habitacion${habitacionesAgregadasPorHotel + 1}';
+          // Agregar cada habitación al hotel correspondiente en Firebase
+          await dbRef.child('hoteles/$hotelId/habitaciones/$habitacionId').set({
+            "tipoHabitacion": habitacion["tipoHabitacion"],
+            "cantidad": habitacion["cantidad"],
+            "codHabitacion": habitacion["codHabitacion"],
+            "precio": habitacion["precio"],
+          });
+          habitacionesAgregadasPorHotel++;
+        } else {
+          break; // Salir del bucle interno si se alcanza el límite
+        }
+      }
+    }
+  }
+
   _initializeUserData() async {
     final userId = FirebaseAuth.instance.currentUser?.uid;
     if (userId != null) {
@@ -72,6 +265,7 @@ class _HomeViewState extends State<HomeView> {
 
         setState(() {
           _hoteles = hoteles;
+          //agregarHabitacionesLimitadas();
           _isLoading = false;
         });
       } else {

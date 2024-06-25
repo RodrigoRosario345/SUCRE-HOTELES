@@ -48,107 +48,163 @@ class _HomeViewState extends State<HomeView> {
     Map<String, List<Map<String, dynamic>>> habitacionesPorHotel = {
       "hotel1": [
         {
-          "tipo_habitacion": "matrimonial",
+          "tipoHabitacion": "Familiar",
           "cantidad": 3,
-          "cod_habitacion": "hab002"
+          "codHabitacion": "hab002",
+          "precio": 200
         },
         {
-          "tipo_habitacion": "familiar",
+          "tipoHabitacion": "Matrimonial",
           "cantidad": 4,
-          "cod_habitacion": "hab003"
+          "codHabitacion": "hab003",
+          "precio": 340
         },
-        {"tipo_habitacion": "suite", "cantidad": 2, "cod_habitacion": "hab004"},
+        {
+          "tipoHabitacion": "Suite",
+          "cantidad": 2,
+          "codHabitacion": "hab004",
+          "precio": 400
+        },
       ],
       "hotel2": [
         {
-          "tipo_habitacion": "matrimonial",
+          "tipoHabitacion": "Junior Suite",
           "cantidad": 3,
-          "cod_habitacion": "hab005"
+          "codHabitacion": "hab005",
+          "precio": 250
         },
         {
-          "tipo_habitacion": "familiar",
+          "tipoHabitacion": "Familiar",
           "cantidad": 4,
-          "cod_habitacion": "hab006"
+          "codHabitacion": "hab006",
+          "precio": 450
         },
-        {"tipo_habitacion": "suite", "cantidad": 5, "cod_habitacion": "hab007"},
+        {
+          "tipoHabitacion": "Matrimonial",
+          "cantidad": 5,
+          "codHabitacion": "hab007",
+          "precio": 340
+        },
       ],
       "hotel3": [
         {
-          "tipo_habitacion": "matrimonial",
+          "tipoHabitacion": "Gran Suite",
           "cantidad": 4,
-          "cod_habitacion": "hab008"
+          "codHabitacion": "hab008",
+          "precio": 500
         },
         {
-          "tipo_habitacion": "familiar",
+          "tipoHabitacion": "Familiar",
           "cantidad": 5,
-          "cod_habitacion": "hab009"
+          "codHabitacion": "hab009",
+          "precio": 350
         },
-        {"tipo_habitacion": "suite", "cantidad": 4, "cod_habitacion": "hab010"},
+        {
+          "tipoHabitacion": "Indivial",
+          "cantidad": 4,
+          "codHabitacion": "hab010",
+          "precio": 200
+        },
       ],
       "hotel4": [
         {
-          "tipo_habitacion": "matrimonial",
+          "tipoHabitacion": "Indivial",
           "cantidad": 2,
-          "cod_habitacion": "hab011"
+          "codHabitacion": "hab011",
+          "precio": 100
         },
         {
-          "tipo_habitacion": "familiar",
+          "tipoHabitacion": "Doble",
           "cantidad": 5,
-          "cod_habitacion": "hab012"
+          "codHabitacion": "hab012",
+          "precio": 190
         },
-        {"tipo_habitacion": "suite", "cantidad": 5, "cod_habitacion": "hab013"},
+        {
+          "tipoHabitacion": "Suite",
+          "cantidad": 5,
+          "codHabitacion": "hab013",
+          "precio": 390
+        },
       ],
       "hotel5": [
         {
-          "tipo_habitacion": "matrimonial",
+          "tipoHabitacion": "Matrimonial",
           "cantidad": 4,
-          "cod_habitacion": "hab014"
+          "codHabitacion": "hab014",
+          "precio": 220
         },
         {
-          "tipo_habitacion": "familiar",
+          "tipoHabitacion": "Familiar",
           "cantidad": 2,
-          "cod_habitacion": "hab015"
+          "codHabitacion": "hab015",
+          "precio": 350
         },
-        {"tipo_habitacion": "suite", "cantidad": 2, "cod_habitacion": "hab016"},
+        {
+          "tipoHabitacion": "Suite",
+          "cantidad": 2,
+          "codHabitacion": "hab016",
+          "precio": 480
+        },
       ],
       "hotel6": [
         {
-          "tipo_habitacion": "matrimonial",
+          "tipoHabitacion": "Matrimonial",
           "cantidad": 2,
-          "cod_habitacion": "hab017"
+          "codHabitacion": "hab017",
+          "precio": 255
         },
         {
-          "tipo_habitacion": "familiar",
+          "tipoHabitacion": "Suite Principal",
           "cantidad": 3,
-          "cod_habitacion": "hab018"
+          "codHabitacion": "hab018",
+          "precio": 599
         },
-        {"tipo_habitacion": "suite", "cantidad": 4, "cod_habitacion": "hab019"},
+        {
+          "tipoHabitacion": "Suite",
+          "cantidad": 4,
+          "codHabitacion": "hab019",
+          "precio": 350
+        },
       ],
       "hotel7": [
         {
-          "tipo_habitacion": "matrimonial",
+          "tipoHabitacion": "Matrimonial",
           "cantidad": 1,
-          "cod_habitacion": "hab020"
+          "codHabitacion": "hab020",
+          "precio": 200
         },
         {
-          "tipo_habitacion": "familiar",
+          "tipoHabitacion": "Familiar",
           "cantidad": 4,
-          "cod_habitacion": "hab021"
+          "codHabitacion": "hab021",
+          "precio": 355
         },
-        {"tipo_habitacion": "suite", "cantidad": 3, "cod_habitacion": "hab022"},
+        {
+          "tipoHabitacion": "Junior Suite",
+          "cantidad": 3,
+          "codHabitacion": "hab022",
+          "precio": 400
+        },
       ],
       "hotel8": [
         {
-          "tipo_habitacion": "matrimonial",
+          "tipoHabitacion": "Gran Suite",
           "cantidad": 3,
-          "cod_habitacion": "hab023"
+          "codHabitacion": "hab023",
+          "precio": 590
         },
         {
-          "tipo_habitacion": "familiar",
+          "tipoHabitacion": "Familiar",
           "cantidad": 1,
-          "cod_habitacion": "hab024"
+          "cod_habitacion": "hab024",
+          "precio": 455
         },
-        {"tipo_habitacion": "suite", "cantidad": 4, "cod_habitacion": "hab025"},
+        {
+          "tipoHabitacion": "Indiviadual",
+          "cantidad": 4,
+          "codHabitacion": "hab025",
+          "precio": 149
+        },
       ],
     };
 
@@ -164,9 +220,10 @@ class _HomeViewState extends State<HomeView> {
               'habitacion${habitacionesAgregadasPorHotel + 1}';
           // Agregar cada habitación al hotel correspondiente en Firebase
           await dbRef.child('hoteles/$hotelId/habitaciones/$habitacionId').set({
-            "tipo_habitacion": habitacion["tipo_habitacion"],
+            "tipoHabitacion": habitacion["tipoHabitacion"],
             "cantidad": habitacion["cantidad"],
-            "cod_habitacion": habitacion["cod_habitacion"],
+            "codHabitacion": habitacion["codHabitacion"],
+            "precio": habitacion["precio"],
           });
           habitacionesAgregadasPorHotel++;
         } else {

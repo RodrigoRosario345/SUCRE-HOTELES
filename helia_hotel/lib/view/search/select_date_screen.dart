@@ -8,9 +8,11 @@ import 'package:hotel/config/text_style.dart';
 import 'package:hotel/view/search/name_reservation_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:hotel/model/data_habitacion.dart';
 
 class SelectDateScreen extends StatefulWidget {
-  const SelectDateScreen({super.key});
+  final Habitacion habitacion;
+  const SelectDateScreen({super.key, required this.habitacion});
 
   @override
   State<SelectDateScreen> createState() => _SelectDateScreenState();
@@ -285,8 +287,30 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
               ),
             ),
             Center(
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Habitacion: ",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(fontSize: 20),
+                    ),
+                    TextSpan(
+                      text: widget.habitacion.tipoHabitacion,
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: const Color(0xff424242),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Center(
               child: Text(
-                "Total: BOL 360",
+                "Total: BOL ${widget.habitacion.precio}",
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: const Color(0xff424242),
                       fontSize: 20,

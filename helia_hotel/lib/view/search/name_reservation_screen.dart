@@ -15,7 +15,6 @@ import 'package:hotel/controller/auth_controller.dart';
 import 'package:intl/intl.dart';
 import 'package:hotel/model/data_habitacion.dart';
 
-
 class NameReservationScreen extends StatefulWidget {
   const NameReservationScreen({super.key});
 
@@ -24,7 +23,6 @@ class NameReservationScreen extends StatefulWidget {
 }
 
 class _NameReservationScreenState extends State<NameReservationScreen> {
-  
   final AuthController authController = Get.find<AuthController>();
   String? nombre;
   String? apellidos;
@@ -33,7 +31,6 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
   String fechaReserva = DateFormat('MM/dd/yyyy').format(DateTime.now());
 
   @override
-  
   void initState() {
     super.initState();
     _initializeUserData();
@@ -53,7 +50,7 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
       }
     }
   }
-  
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -84,18 +81,17 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
                   Column(
                     children: [
                       const SizedBox(height: 20),
-                      
                       CustomField(
                         hintText: "nombre",
-                        textFieldController:
-                            TextEditingController(text: '${nombre ?? 'Cargando...'}'),
+                        textFieldController: TextEditingController(
+                            text: '${nombre ?? 'Cargando...'}'),
                         sufix: const SizedBox(),
                       ),
                       const SizedBox(height: 20),
                       CustomField(
                         hintText: "apellido",
-                        textFieldController:
-                            TextEditingController(text: '${apellidos ?? 'Cargando...'}'),
+                        textFieldController: TextEditingController(
+                            text: '${apellidos ?? 'Cargando...'}'),
                         sufix: const SizedBox(),
                       ),
                       const SizedBox(height: 20),
@@ -113,26 +109,26 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
                       const SizedBox(height: 20),
                       CustomField(
                         hintText: "correo electrónico",
-                        textFieldController: TextEditingController(
-                            text: "${email ?? 'Cargando...'}"),
+                        textFieldController:
+                            TextEditingController(text: email ?? 'Cargando...'),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
-                            DefaultImages.calendar,
+                            DefaultImages.email,
                           ),
                         ),
                       ),
                       const SizedBox(height: 20),
                       CustomTextField(
                         hintText: "numero",
-                        textFieldController:
-                            TextEditingController(text: '${cel ?? 'Cargando...'}'),
+                        textFieldController: TextEditingController(
+                            text: '+591  ${cel ?? 'Cargando...'}'),
                         sufix: const SizedBox(),
-                        prefix: const Padding(
-                          padding: EdgeInsets.all(14.0),
-                          // child: SvgPicture.asset(
-                          //   DefaultImages.p2,
-                          // ),
+                        prefix: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: SvgPicture.asset(
+                            DefaultImages.p2,
+                          ),
                         ),
                         onChanged: (value) {},
                         suffix: const InkWell(),

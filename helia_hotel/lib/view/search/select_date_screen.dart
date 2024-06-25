@@ -20,7 +20,8 @@ class SelectDateScreen extends StatefulWidget {
 }
 
 class _SelectDateScreenState extends State<SelectDateScreen> {
-  final DateController dateController = Get.put(DateController()); // Instancia del controlador
+  final DateController dateController =
+      Get.put(DateController()); // Instancia del controlador
 
   // Función para formatear las fechas
   String _formatDate(DateTime? date) {
@@ -35,7 +36,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
     dateController.setHabitacionData(
         widget.habitacion.tipoHabitacion, widget.habitacion.precio);
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,10 +80,12 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                         ),
                         width: Get.width,
                         child: SfDateRangePicker(
-                          onSelectionChanged: (DateRangePickerSelectionChangedArgs args) {
+                          onSelectionChanged:
+                              (DateRangePickerSelectionChangedArgs args) {
                             setState(() {
                               if (args.value is PickerDateRange) {
-                                dateController.setDates(args.value.startDate, args.value.endDate);
+                                dateController.setDates(
+                                    args.value.startDate, args.value.endDate);
                               }
                             });
                           },
@@ -124,7 +127,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyLarge!
-                                      .copyWith(fontSize: 18),
+                                      .copyWith(fontSize: 16),
                                 ),
                                 const SizedBox(height: 15),
                                 Container(
@@ -141,11 +144,12 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                     child: Row(
                                       children: [
                                         Text(
-                                          _formatDate(dateController.startDate.value),
+                                          _formatDate(
+                                              dateController.startDate.value),
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
-                                              .copyWith(fontSize: 14),
+                                              .copyWith(fontSize: 13),
                                         ),
                                         const Expanded(child: SizedBox()),
                                         SizedBox(
@@ -187,11 +191,11 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Fecha de   salida",
+                                  "Fecha de salida",
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyLarge!
-                                      .copyWith(fontSize: 18),
+                                      .copyWith(fontSize: 16),
                                 ),
                                 const SizedBox(height: 15),
                                 Container(
@@ -206,15 +210,18 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                     padding: const EdgeInsets.only(
                                         left: 20, right: 20),
                                     child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
                                       children: [
                                         Text(
-                                          _formatDate(dateController.endDate.value),
+                                          _formatDate(
+                                              dateController.endDate.value),
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
-                                              .copyWith(fontSize: 14),
+                                              .copyWith(fontSize: 13),
                                         ),
-                                        const Expanded(child: SizedBox()),
+                                        // const Expanded(child: SizedBox()),
                                         SizedBox(
                                           height: 20,
                                           width: 20,

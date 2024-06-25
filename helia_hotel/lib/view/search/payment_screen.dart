@@ -101,7 +101,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       const SizedBox(height: 30),
                       card(
                         DefaultImages.card,
-                        "•••• •••• •••• •••• 4679",
+                        "•••• •••• •••• 4679",
                         HexColor(AppTheme.primaryColorString!),
                       ),
                     ],

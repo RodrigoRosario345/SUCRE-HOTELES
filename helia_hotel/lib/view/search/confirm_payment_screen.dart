@@ -14,17 +14,17 @@ import 'package:firebase_database/firebase_database.dart';
 
 class ConfirmPaymentScreen extends StatefulWidget {
   const ConfirmPaymentScreen({super.key});
-
   @override
   State<ConfirmPaymentScreen> createState() => _ConfirmPaymentScreenState();
 }
 
 class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
-  final DateController dateController = Get.find<DateController>(); // Encuentra el controlador existente
+  final DateController dateController =
+      Get.find<DateController>(); // Encuentra el controlador existente
   final AuthController authController = Get.find<AuthController>();
-  
+
   final DatabaseReference _databaseReference = FirebaseDatabase.instance.ref();
-  
+
   String? nombre;
   String? userId;
   String? apellidos;
@@ -36,17 +36,18 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
     try {
       final user = FirebaseAuth.instance.currentUser;
       if (user != null) {
-        DatabaseReference reservasRef = FirebaseDatabase.instance.ref().child('reservas').push();
-        
+        DatabaseReference reservasRef =
+            FirebaseDatabase.instance.ref().child('reservas').push();
+
         await reservasRef.set({
-          "userId": userId,
+          "userId": user.email,
           "codHabitacion": dateController.codHabit,
           "fecha_inicio": _formatDate(dateController.startDate.value),
           "fecha_final": _formatDate(dateController.endDate.value),
           "impuesto": _calculateTax().toStringAsFixed(2),
           "precio_total": _calculateGrandTotal().toStringAsFixed(2),
         });
-        
+
         print("Reserva guardada exitosamente en Firebase.");
       } else {
         print("Usuario no autenticado.");
@@ -55,9 +56,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
       print("Error al guardar la reserva en Firebase: $error");
     }
   }
-  
-  
-  
+
   String _formatDate(DateTime? date) {
     if (date == null) return "Seleccione";
     return "${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}";
@@ -70,7 +69,8 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
 
   double _calculateTotalPrice() {
     // Asumiendo que dateController.precio es el precio por noche
-    final nights = _calculateDifferenceInDays(dateController.startDate.value!, dateController.endDate.value!);
+    final nights = _calculateDifferenceInDays(
+        dateController.startDate.value!, dateController.endDate.value!);
     final totalPrice = nights * dateController.precio;
     return totalPrice;
   }
@@ -89,7 +89,6 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
   }
 
   @override
-
   void initState() {
     super.initState();
     _initializeUserData();
@@ -207,20 +206,22 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Obx(() => Text(
-                                          _formatDate(dateController.startDate.value),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyLarge!
-                                              .copyWith(fontSize: 16),
-                                        )),
+                                              _formatDate(dateController
+                                                  .startDate.value),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge!
+                                                  .copyWith(fontSize: 16),
+                                            )),
                                         const SizedBox(height: 20),
                                         Obx(() => Text(
-                                          _formatDate(dateController.endDate.value),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyLarge!
-                                              .copyWith(fontSize: 16),
-                                        )),
+                                              _formatDate(
+                                                  dateController.endDate.value),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge!
+                                                  .copyWith(fontSize: 16),
+                                            )),
                                         const SizedBox(height: 20),
                                         Text(
                                           "${dateController.tipoHabitacion}", // Puedes cambiarlo a una variable dinámica si es necesario

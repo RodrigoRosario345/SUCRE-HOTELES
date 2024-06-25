@@ -84,14 +84,14 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
                       CustomField(
                         hintText: "nombre",
                         textFieldController: TextEditingController(
-                            text: '${nombre ?? 'Cargando...'}'),
+                            text: nombre ?? 'Cargando...'),
                         sufix: const SizedBox(),
                       ),
                       const SizedBox(height: 20),
                       CustomField(
                         hintText: "apellido",
                         textFieldController: TextEditingController(
-                            text: '${apellidos ?? 'Cargando...'}'),
+                            text: apellidos ?? 'Cargando...'),
                         sufix: const SizedBox(),
                       ),
                       const SizedBox(height: 20),

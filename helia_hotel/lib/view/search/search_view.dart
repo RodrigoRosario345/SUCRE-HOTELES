@@ -323,7 +323,7 @@ class _SearchViewState extends State<SearchView> {
                                               .textTheme
                                               .bodyLarge!
                                               .copyWith(
-                                                fontSize: 18,
+                                                fontSize: 14,
                                                 color: HexColor(AppTheme
                                                     .primaryColorString!),
                                               ),

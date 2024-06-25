@@ -200,7 +200,7 @@ class _SearchViewState extends State<SearchView> {
                               child: Row(
                                 children: [
                                   Container(
-                                    height: 100,
+                                    height: 115,
                                     width: 100,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
@@ -240,7 +240,7 @@ class _SearchViewState extends State<SearchView> {
                                               .textTheme
                                               .bodyLarge!
                                               .copyWith(
-                                                fontSize: 20,
+                                                fontSize: 18,
                                                 fontWeight: FontWeight.w700,
                                               ),
                                         ),
@@ -282,14 +282,14 @@ class _SearchViewState extends State<SearchView> {
                                             ),
                                             Text(
                                               index == 0
-                                                  ? "(5 vistas)"
+                                                  ? "(1 vistas)"
                                                   : index == 1
-                                                      ? "(4 vistas)"
+                                                      ? "(1 vistas)"
                                                       : index == 2
-                                                          ? "(3 vistas)"
+                                                          ? "(1 vistas)"
                                                           : index == 3
-                                                              ? "(5 vistas)"
-                                                              : "(4 vistas)",
+                                                              ? "(1 vistas)"
+                                                              : "(1 vistas)",
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .bodyLarge!
@@ -323,7 +323,7 @@ class _SearchViewState extends State<SearchView> {
                                               .textTheme
                                               .bodyLarge!
                                               .copyWith(
-                                                fontSize: 14,
+                                                fontSize: 13,
                                                 color: HexColor(AppTheme
                                                     .primaryColorString!),
                                               ),

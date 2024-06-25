@@ -775,14 +775,8 @@ class _HomeViewState extends State<HomeView> {
                                                                 .primaryColorString!),
                                                           ),
                                                     ),
-                                                    const Icon(
-                                                      // icon eye - ver
-                                                      Icons.remove_red_eye,
-                                                      color: Color(0xff757575),
-                                                      size: 15,
-                                                    ),
                                                     Text(
-                                                      " 1",
+                                                      " (1 vistas)",
                                                       style: Theme.of(context)
                                                           .textTheme
                                                           .bodyLarge!

@@ -9,6 +9,12 @@ import 'package:hotel/view/search/payment_screen.dart';
 import 'package:hotel/view/search/search_view.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:hotel/widget/custom_textfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:hotel/controller/auth_controller.dart';
+import 'package:intl/intl.dart';
+import 'package:hotel/model/data_habitacion.dart';
+
 
 class NameReservationScreen extends StatefulWidget {
   const NameReservationScreen({super.key});
@@ -18,7 +24,36 @@ class NameReservationScreen extends StatefulWidget {
 }
 
 class _NameReservationScreenState extends State<NameReservationScreen> {
+  
+  final AuthController authController = Get.find<AuthController>();
+  String? nombre;
+  String? apellidos;
+  String? email;
+  String? cel;
+  String fechaReserva = DateFormat('MM/dd/yyyy').format(DateTime.now());
+
   @override
+  
+  void initState() {
+    super.initState();
+    _initializeUserData();
+  }
+
+  _initializeUserData() async {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final userInfo = await authController.getUserInfo(userId);
+      if (userInfo != null) {
+        setState(() {
+          nombre = userInfo['nombre'];
+          apellidos = userInfo['apellidos'];
+          email = userInfo['email'];
+          cel = userInfo['celular'];
+        });
+      }
+    }
+  }
+  
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -49,52 +84,25 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
                   Column(
                     children: [
                       const SizedBox(height: 20),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: searchCard(
-                              "Mr.",
-                              HexColor(AppTheme.primaryColorString!),
-                              () {},
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: searchCard(
-                              "Mrs.",
-                              Colors.transparent,
-                              () {},
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: searchCard(
-                              "Ms.",
-                              Colors.transparent,
-                              () {},
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
+                      
                       CustomField(
                         hintText: "nombre",
                         textFieldController:
-                            TextEditingController(text: "Rodrigo"),
+                            TextEditingController(text: '${nombre ?? 'Cargando...'}'),
                         sufix: const SizedBox(),
                       ),
                       const SizedBox(height: 20),
                       CustomField(
                         hintText: "apellido",
                         textFieldController:
-                            TextEditingController(text: "Rosario"),
+                            TextEditingController(text: '${apellidos ?? 'Cargando...'}'),
                         sufix: const SizedBox(),
                       ),
                       const SizedBox(height: 20),
                       CustomField(
                         hintText: "fecha de reserva",
                         textFieldController:
-                            TextEditingController(text: "12/27/1995"),
+                            TextEditingController(text: fechaReserva),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
@@ -106,7 +114,7 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
                       CustomField(
                         hintText: "correo electrónico",
                         textFieldController: TextEditingController(
-                            text: "rodrigorosario@gmail.com"),
+                            text: "${email ?? 'Cargando...'}"),
                         sufix: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: SvgPicture.asset(
@@ -118,7 +126,7 @@ class _NameReservationScreenState extends State<NameReservationScreen> {
                       CustomTextField(
                         hintText: "numero",
                         textFieldController:
-                            TextEditingController(text: "+591 77382944"),
+                            TextEditingController(text: '${cel ?? 'Cargando...'}'),
                         sufix: const SizedBox(),
                         prefix: const Padding(
                           padding: EdgeInsets.all(14.0),

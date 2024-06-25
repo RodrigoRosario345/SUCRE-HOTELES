@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
+import 'package:hotel/controller/date_controller.dart';
 import 'package:hotel/view/search/name_reservation_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
@@ -19,6 +20,22 @@ class SelectDateScreen extends StatefulWidget {
 }
 
 class _SelectDateScreenState extends State<SelectDateScreen> {
+  final DateController dateController = Get.put(DateController()); // Instancia del controlador
+
+  // Función para formatear las fechas
+  String _formatDate(DateTime? date) {
+    if (date == null) return "Seleccione";
+    return "${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}";
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Al inicializar la pantalla, guarda los datos en el controlador
+    dateController.setHabitacionData(
+        widget.habitacion.tipoHabitacion, widget.habitacion.precio);
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +79,13 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                         ),
                         width: Get.width,
                         child: SfDateRangePicker(
-                          onSelectionChanged: (v) {},
+                          onSelectionChanged: (DateRangePickerSelectionChangedArgs args) {
+                            setState(() {
+                              if (args.value is PickerDateRange) {
+                                dateController.setDates(args.value.startDate, args.value.endDate);
+                              }
+                            });
+                          },
                           monthCellStyle: DateRangePickerMonthCellStyle(
                             textStyle:
                                 Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -97,7 +120,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "fecha de entrada",
+                                  "Fecha de entrada",
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyLarge!
@@ -118,7 +141,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                     child: Row(
                                       children: [
                                         Text(
-                                          "Jun 29",
+                                          _formatDate(dateController.startDate.value),
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
@@ -164,7 +187,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Fecha de salida",
+                                  "Fecha de   salida",
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyLarge!
@@ -185,7 +208,7 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                     child: Row(
                                       children: [
                                         Text(
-                                          "Jun 30",
+                                          _formatDate(dateController.endDate.value),
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
@@ -213,74 +236,6 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                         ],
                       ),
                       const SizedBox(height: 20),
-                      Container(
-                        height: 76,
-                        width: Get.width,
-                        decoration: BoxDecoration(
-                          color: AppTheme.isLightTheme == true
-                              ? const Color(0xffFAFAFA)
-                              : const Color(0xff1F222A),
-                          border: Border.all(
-                            color: AppTheme.isLightTheme == true
-                                ? const Color(0xffEEEEEE)
-                                : const Color(0xffEEEEEE).withOpacity(0.1),
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 52,
-                              width: 52,
-                              decoration: BoxDecoration(
-                                color: AppTheme.isLightTheme == true
-                                    ? const Color(0xffE8F8EF)
-                                    : Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge!
-                                        .color!
-                                        .withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: Icon(
-                                Icons.remove,
-                                color: HexColor(AppTheme.primaryColorString!),
-                                size: 22,
-                              ),
-                            ),
-                            const SizedBox(width: 30),
-                            Text(
-                              "3",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(fontSize: 24),
-                            ),
-                            const SizedBox(width: 30),
-                            Container(
-                              height: 52,
-                              width: 52,
-                              decoration: BoxDecoration(
-                                color: AppTheme.isLightTheme == true
-                                    ? const Color(0xffE8F8EF)
-                                    : Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge!
-                                        .color!
-                                        .withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: Icon(
-                                Icons.add,
-                                color: HexColor(AppTheme.primaryColorString!),
-                                size: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 50),
                     ],
                   ),
                 ],

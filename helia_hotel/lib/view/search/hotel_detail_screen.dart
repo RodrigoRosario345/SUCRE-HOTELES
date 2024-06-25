@@ -18,6 +18,8 @@ import 'package:hotel/widget/custom_container.dart';
 import 'package:readmore/readmore.dart';
 import 'package:hotel/model/data_modelo.dart';
 import 'package:hotel/model/data_habitacion.dart';
+import 'package:hotel/controller/date_controller.dart';
+
 
 class HotelDetailScreen extends StatefulWidget {
   final Hotel hotel;
@@ -28,6 +30,7 @@ class HotelDetailScreen extends StatefulWidget {
 }
 
 class _HotelDetailScreenState extends State<HotelDetailScreen> {
+  final DateController dateController = Get.put(DateController()); 
   var scaffoldKey = GlobalKey<ScaffoldState>();
   late List<String> _firstFourImageKeys; // Para las primeras 4 imágenes
   late List<String> _randomFiveImageKeys; // Para 5 imágenes aleatorias
@@ -36,6 +39,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
   void initState() {
     super.initState();
     _selectImages();
+    dateController.setHotelData(widget.hotel.nombre);
   }
 
   void _selectImages() {

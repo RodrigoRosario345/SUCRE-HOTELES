@@ -4,9 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
+import 'package:hotel/controller/date_controller.dart';
+import 'package:get/get.dart';
 
-class CardView extends StatelessWidget {
+class CardView extends StatefulWidget {
   const CardView({super.key});
+
+  @override
+  State<CardView> createState() => _CardView();
+}
+
+class _CardView extends State<CardView> {
+  final DateController dateController = Get.find<DateController>(); 
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +56,7 @@ class CardView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Hotel On boutique",
+                    "${dateController.nomHotel}",
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
@@ -93,17 +102,17 @@ class CardView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    " 360BOL",
+                    "${dateController.precio} Bs",
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          fontSize: 18,
+                          fontSize: 13,
                           color: HexColor(AppTheme.primaryColorString!),
                         ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 13),
                   Text(
                     "/ noche",
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          fontSize: 10,
+                          fontSize: 12,
                           color: const Color(0xff757575),
                         ),
                   ),

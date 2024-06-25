@@ -78,7 +78,7 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
                       const SizedBox(height: 30),
                       card(
                         DefaultImages.card,
-                        "•••• •••• •••• •••• 4679",
+                        "•••• •••• •••• 4679",
                         HexColor(AppTheme.primaryColorString!),
                       ),
                       const SizedBox(height: 60),

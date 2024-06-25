@@ -108,7 +108,7 @@ class _CanceledViewState extends State<CanceledView> {
                                       .textTheme
                                       .bodyLarge!
                                       .copyWith(
-                                        fontSize: 13,
+                                        fontSize: 12,
                                         color: const Color(0xffF75555),
                                       ),
                                 ),
@@ -144,7 +144,7 @@ class _CanceledViewState extends State<CanceledView> {
                                   .textTheme
                                   .bodyLarge!
                                   .copyWith(
-                                    fontSize: 15,
+                                    fontSize: 13,
                                     color: const Color(0xffF75555),
                                   ),
                             ),

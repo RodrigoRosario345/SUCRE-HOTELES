@@ -75,7 +75,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                   .textTheme
                                   .bodyLarge!
                                   .copyWith(
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w700,
                                   ),
                             ),
@@ -90,7 +90,7 @@ class _OnGoingViewState extends State<OnGoingView> {
                                   .textTheme
                                   .bodyLarge!
                                   .copyWith(
-                                    fontSize: 14,
+                                    fontSize: 13,
                                     color: const Color(0xff616161),
                                   ),
                             ),

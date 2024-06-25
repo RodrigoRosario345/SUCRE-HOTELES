@@ -5,6 +5,7 @@ import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
 import 'package:hotel/controller/date_controller.dart'; // Importa el controlador
 import 'package:hotel/view/search/ticket_screen.dart';
+import 'package:hotel/view/tab_screen.dart';
 import 'package:hotel/widget/card_view.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -471,9 +472,12 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                           ),
                           const SizedBox(height: 12),
                           CustomlabelLarge(
-                            text: "Cancelar",
+                            text: "Volver al inicio",
                             onTap: () {
-                              Navigator.pop(context);
+                              Get.offAll(
+                                () => const TabScreen(),
+                                transition: Transition.rightToLeft,
+                              );
                             },
                             bgColor: AppTheme.isLightTheme == true
                                 ? HexColor(AppTheme.primaryColorString!)

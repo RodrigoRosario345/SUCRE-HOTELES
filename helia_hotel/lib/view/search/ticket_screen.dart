@@ -155,9 +155,9 @@ class _TicketScreenState extends State<TicketScreen> {
                           const SizedBox(height: 30),
                           Row(
                             children: [
-                              customColumn("Hotel", "${dateController.nomHotel}"),
+                              customColumn("Habitacion", "${dateController.tipoHabitacion}"),
                               const SizedBox(width: 14),
-                              customColumn("Invitados", "3"),
+                              customColumn("Precio por noche", "${dateController.precio} Bs."),
                             ],
                           ),
                         ],

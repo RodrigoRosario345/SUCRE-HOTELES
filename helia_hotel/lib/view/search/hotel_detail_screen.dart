@@ -17,6 +17,7 @@ import 'package:hotel/view/search/select_date_screen.dart';
 import 'package:hotel/widget/custom_container.dart';
 import 'package:readmore/readmore.dart';
 import 'package:hotel/model/data_modelo.dart';
+import 'package:hotel/model/data_habitacion.dart';
 
 class HotelDetailScreen extends StatefulWidget {
   final Hotel hotel;
@@ -265,7 +266,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Text(
-                          "Detalles",
+                          "Habitaciones",
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge!
@@ -273,15 +274,286 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          detailCard(DefaultImages.i2, "Hoteles"),
-                          detailCard(DefaultImages.i3, "4 Dormitorios"),
-                          detailCard(DefaultImages.i4, "2 Baños"),
-                          detailCard(DefaultImages.i5, "4000 sqft"),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            for (var i = 0; i < 3; i++)
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 20),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: AppTheme.isLightTheme == true
+                                        ? Theme.of(context)
+                                            .appBarTheme
+                                            .backgroundColor
+                                        : const Color(0xff1F222A),
+                                    borderRadius: BorderRadius.circular(16),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color(0xff04060F)
+                                            .withOpacity(0.05),
+                                        blurRadius: 8,
+                                      )
+                                    ],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            const SizedBox(width: 14),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  i == 0
+                                                      ? widget
+                                                          .hotel
+                                                          .habitaciones[0]
+                                                          .tipoHabitacion
+                                                      : i == 1
+                                                          ? widget
+                                                              .hotel
+                                                              .habitaciones[1]
+                                                              .tipoHabitacion
+                                                          : widget
+                                                              .hotel
+                                                              .habitaciones[2]
+                                                              .tipoHabitacion,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyLarge!
+                                                      .copyWith(
+                                                          fontSize: 17,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                ),
+                                                const SizedBox(height: 5),
+                                                Text.rich(
+                                                  TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                        text: "Hab. Disp.: ",
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                                fontSize: 13),
+                                                      ),
+                                                      TextSpan(
+                                                        text: i == 0
+                                                            ? widget
+                                                                .hotel
+                                                                .habitaciones[0]
+                                                                .cantidad
+                                                                .toString()
+                                                            : i == 1
+                                                                ? widget
+                                                                    .hotel
+                                                                    .habitaciones[
+                                                                        1]
+                                                                    .cantidad
+                                                                    .toString()
+                                                                : widget
+                                                                    .hotel
+                                                                    .habitaciones[
+                                                                        2]
+                                                                    .cantidad
+                                                                    .toString(),
+                                                        style: const TextStyle(
+                                                          fontWeight: FontWeight
+                                                              .bold, // Negrita solo para el valor de la cantidad
+                                                          fontSize:
+                                                              14, // Tamaño de fuente más grande solo para el valor de la cantidad
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                const SizedBox(height: 5),
+                                                Text.rich(
+                                                  TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                        text: "Precio: ",
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                                fontSize: 13),
+                                                      ),
+                                                      TextSpan(
+                                                        text: i == 0
+                                                            ? widget
+                                                                .hotel
+                                                                .habitaciones[0]
+                                                                .precio
+                                                                .toString()
+                                                            : i == 1
+                                                                ? widget
+                                                                    .hotel
+                                                                    .habitaciones[
+                                                                        1]
+                                                                    .precio
+                                                                    .toString()
+                                                                : widget
+                                                                    .hotel
+                                                                    .habitaciones[
+                                                                        2]
+                                                                    .precio
+                                                                    .toString(),
+                                                        style: const TextStyle(
+                                                          fontWeight: FontWeight
+                                                              .bold, // Negrita solo para el valor de la cantidad
+                                                          fontSize:
+                                                              14, // Tamaño de fuente más grande solo para el valor de la cantidad
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: "BOL",
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                                fontSize: 13),
+                                                      ),
+                                                      const TextSpan(
+                                                        text: " /",
+                                                        style: TextStyle(
+                                                          fontWeight: FontWeight
+                                                              .bold, // Negrita solo para el valor de la cantidad
+                                                          fontSize: 14,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: "noche",
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                                fontSize: 13),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            //const SizedBox(width: 20),
+                                            Expanded(
+                                              // Asegura que el Row pueda expandirse
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  SizedBox(
+                                                    width: 100,
+                                                    child: CustomlabelLarge(
+                                                      text: "Reservar",
+                                                      onTap: () {
+                                                        Get.to(
+                                                          i == 0
+                                                              ? SelectDateScreen(
+                                                                  habitacion: widget
+                                                                          .hotel
+                                                                          .habitaciones[
+                                                                      0])
+                                                              : i == 1
+                                                                  ? SelectDateScreen(
+                                                                      habitacion:
+                                                                          widget.hotel.habitaciones[
+                                                                              1])
+                                                                  : SelectDateScreen(
+                                                                      habitacion: widget
+                                                                          .hotel
+                                                                          .habitaciones[2]),
+                                                          transition: Transition
+                                                              .rightToLeft,
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        const SizedBox(height: 20),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            detailCard(
+                                                DefaultImages.i2, "Hoteles"),
+                                            detailCard(DefaultImages.i3,
+                                                "4 Dormitorios"),
+                                            detailCard(
+                                                DefaultImages.i4, "2 Baños"),
+                                            detailCard(
+                                                DefaultImages.i5, "4000 sqft"),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            const SizedBox(height: 20),
+
+                            // boton de ver mas
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                height: 50,
+                                width: Get.width,
+                                decoration: BoxDecoration(
+                                  color: AppTheme.isLightTheme == true
+                                      ? HexColor(AppTheme.primaryColorString!)
+                                          .withOpacity(0.2)
+                                      : Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge!
+                                          .color!
+                                          .withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Ver más habitaciones",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge!
+                                          .copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                            color: AppTheme.isLightTheme == true
+                                                ? HexColor(AppTheme
+                                                    .primaryColorString!)
+                                                : Colors.white,
+                                          ),
+                                    ),
+                                    Icon(
+                                      Icons.keyboard_arrow_down,
+                                      color: HexColor(
+                                          AppTheme.primaryColorString!),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                          ],
+                        ),
                       ),
+
+                      // DESCRIPCIÓN
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
@@ -606,57 +878,6 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                 ],
               ),
             ),
-            Container(
-              height: 118,
-              width: Get.width,
-              decoration: BoxDecoration(
-                color: Theme.of(context).appBarTheme.backgroundColor,
-                boxShadow: const [
-                  BoxShadow(
-                    blurRadius: 1,
-                    color: Color(0xffEEEEEE),
-                  )
-                ],
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(24),
-                  topRight: Radius.circular(24),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      "${widget.hotel.precio.toString()}BOL",
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: HexColor(AppTheme.primaryColorString!),
-                            fontSize: 32,
-                            fontWeight: FontWeight.w700,
-                          ),
-                    ),
-                    Text(
-                      "  / noche",
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: const Color(0xff424242),
-                            fontSize: 14,
-                          ),
-                    ),
-                    const SizedBox(width: 20),
-                    Expanded(
-                      child: CustomlabelLarge(
-                        text: "Reservar ahora",
-                        onTap: () {
-                          Get.to(
-                            const SelectDateScreen(),
-                            transition: Transition.rightToLeft,
-                          );
-                        },
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
           ],
         ),
       ),

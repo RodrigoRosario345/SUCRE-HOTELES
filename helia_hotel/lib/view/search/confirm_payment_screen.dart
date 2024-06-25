@@ -1,12 +1,15 @@
-// ignore_for_file: deprecated_member_use
-
+// file: confirm_payment_screen.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hotel/config/images.dart';
 import 'package:hotel/config/text_style.dart';
+import 'package:hotel/controller/date_controller.dart'; // Importa el controlador
 import 'package:hotel/view/search/ticket_screen.dart';
 import 'package:hotel/widget/card_view.dart';
 import 'package:hotel/widget/custom_container.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hotel/controller/auth_controller.dart';
+import 'package:intl/intl.dart';
 
 class ConfirmPaymentScreen extends StatefulWidget {
   const ConfirmPaymentScreen({super.key});
@@ -16,7 +19,67 @@ class ConfirmPaymentScreen extends StatefulWidget {
 }
 
 class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
+  final DateController dateController = Get.find<DateController>(); // Encuentra el controlador existente
+
+  final AuthController authController = Get.find<AuthController>();
+  String? nombre;
+  String? apellidos;
+  String? email;
+  String? cel;
+  String fechaReserva = DateFormat('MM/dd/yyyy').format(DateTime.now());
+
+  String _formatDate(DateTime? date) {
+    if (date == null) return "Seleccione";
+    return "${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}";
+  }
+
+  int _calculateDifferenceInDays(DateTime start, DateTime end) {
+    final difference = end.difference(start).inDays;
+    return difference;
+  }
+
+  double _calculateTotalPrice() {
+    // Asumiendo que dateController.precio es el precio por noche
+    final nights = _calculateDifferenceInDays(dateController.startDate.value!, dateController.endDate.value!);
+    final totalPrice = nights * dateController.precio;
+    return totalPrice;
+  }
+
+  double _calculateTax() {
+    // Calcula el 10% del precio total
+    final totalPrice = _calculateTotalPrice();
+    final tax = totalPrice * 0.1; // 10% del precio total
+    return tax;
+  }
+
+  double _calculateGrandTotal() {
+    // Suma el total y el impuesto
+    final grandTotal = _calculateTotalPrice() + _calculateTax();
+    return grandTotal;
+  }
+
   @override
+
+  void initState() {
+    super.initState();
+    _initializeUserData();
+  }
+
+  _initializeUserData() async {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final userInfo = await authController.getUserInfo(userId);
+      if (userInfo != null) {
+        setState(() {
+          nombre = userInfo['nombre'];
+          apellidos = userInfo['apellidos'];
+          email = userInfo['email'];
+          cel = userInfo['celular'];
+        });
+      }
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -96,7 +159,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                         ),
                                         const SizedBox(height: 20),
                                         Text(
-                                          "Invitados",
+                                          "Habitacion",
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodySmall!
@@ -113,24 +176,24 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          "Junio 29, 2023",
+                                        Obx(() => Text(
+                                          _formatDate(dateController.startDate.value),
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
                                               .copyWith(fontSize: 16),
-                                        ),
+                                        )),
                                         const SizedBox(height: 20),
-                                        Text(
-                                          "Junio 30, 2023",
+                                        Obx(() => Text(
+                                          _formatDate(dateController.endDate.value),
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
                                               .copyWith(fontSize: 16),
-                                        ),
+                                        )),
                                         const SizedBox(height: 20),
                                         Text(
-                                          "3",
+                                          "${dateController.tipoHabitacion}", // Puedes cambiarlo a una variable dinámica si es necesario
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
@@ -146,6 +209,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 20),
                       const SizedBox(height: 20),
                       Container(
                         decoration: BoxDecoration(
@@ -173,7 +237,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "5 Noches",
+                                          "${_calculateDifferenceInDays(dateController.startDate.value!, dateController.endDate.value!)} Noches",
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodySmall!
@@ -183,7 +247,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                         ),
                                         const SizedBox(height: 20),
                                         Text(
-                                          "impuestos y pagos (10%)",
+                                          "Impuestos y Pagos (10%)",
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodySmall!
@@ -211,7 +275,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "\$435.00",
+                                          "${_calculateTotalPrice().toStringAsFixed(2)} Bs.",
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
@@ -219,7 +283,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                         ),
                                         const SizedBox(height: 20),
                                         Text(
-                                          "\$44.50",
+                                          "${_calculateTax().toStringAsFixed(2)} Bs.",
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
@@ -227,7 +291,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                         ),
                                         const SizedBox(height: 20),
                                         Text(
-                                          "\$479.50",
+                                          "${_calculateGrandTotal().toStringAsFixed(2)} Bs.",
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge!
@@ -281,7 +345,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                     .textTheme
                                     .bodyLarge!
                                     .copyWith(
-                                      fontSize: 18,
+                                      fontSize: 10,
                                     ),
                               ),
                               const Expanded(child: SizedBox()),
@@ -291,7 +355,7 @@ class _ConfirmPaymentScreenState extends State<ConfirmPaymentScreen> {
                                     .textTheme
                                     .bodyLarge!
                                     .copyWith(
-                                      fontSize: 16,
+                                      fontSize: 13,
                                       color: HexColor(
                                           AppTheme.primaryColorString!),
                                     ),
